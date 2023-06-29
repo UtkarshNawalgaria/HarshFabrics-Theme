@@ -505,7 +505,7 @@
         "head_btn_label": "Shop All",
         "head_btn_url": "",
         "head_btn_icon": true,
-        "head_btn_rounded": false,
+        "head_btn_rounded": true,
         "head_button_style": "outline",
         "head_btns_size": "default",
         "head_btns_cl": "dark",
