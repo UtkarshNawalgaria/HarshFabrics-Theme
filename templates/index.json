@@ -614,14 +614,14 @@
         "b935a703-20ae-4742-84a5-7c32cebc6426"
       ],
       "settings": {
-        "design_heading": "1",
+        "design_heading": "5",
         "heading_center": false,
-        "top_heading": "Shop <br> by [categories]",
+        "top_heading": "",
         "top_subheading": "",
         "tophead_mb": 30,
         "tophead_mb_tb": 30,
         "tophead_mb_mb": 20,
-        "heading_inline": true,
+        "heading_inline": false,
         "heading_width": "small",
         "collection_des": "1",
         "title_fs": 16,
