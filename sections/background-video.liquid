@@ -14,28 +14,28 @@
     assign se_height = se_stts.se_height
     assign source = se_stts.source
 
-    assign bg_content_op = se_stts.bg_content_op | divided_by: 100.0 
-    assign bg_content = se_stts.bg_content_cl | color_modify: 'alpha', bg_content_op 
+    assign bg_content_op = se_stts.bg_content_op | divided_by: 100.0
+    assign bg_content = se_stts.bg_content_cl | color_modify: 'alpha', bg_content_op
 
-    assign bg_opacity = se_stts.bg_opacity | divided_by: 100.0 
-    assign bg_overlay = se_stts.bg_overlay | color_modify: 'alpha', bg_opacity 
+    assign bg_opacity = se_stts.bg_opacity | divided_by: 100.0
+    assign bg_overlay = se_stts.bg_overlay | color_modify: 'alpha', bg_opacity
 
-    assign content_pd = se_stts.content_pd | remove:' ' | split:','  
-    assign content_pd_mb = se_stts.content_pd_mb | remove:' ' | split:','  
+    assign content_pd = se_stts.content_pd | remove: ' ' | split: ','
+    assign content_pd_mb = se_stts.content_pd_mb | remove: ' ' | split: ','
 
     assign br_opacity = se_stts.br_opacity | divided_by: 100.0
-    assign br_bg = se_stts.br_bg | color_modify: 'alpha', br_opacity 
+    assign br_bg = se_stts.br_bg | color_modify: 'alpha', br_opacity
 
-    assign ani_delay = 0   
+    assign ani_delay = 0
     assign percent_delay = se_stts.animation_delay | divided_by: 100.0
     assign time_ani_delay = se_stts.time_animation | times: percent_delay
 
-    if stt_layout == 't4s-container-wrap' 
+    if stt_layout == 't4s-container-wrap'
         assign html_layout = '<div class="t4s-container">__</div>' | split:'__'
     else
-        assign html_layout = '__' | split:'__'
+        assign html_layout = '__' | split: '__'
     endif
-  
+
     assign countdown = false
     assign use_button = false
     assign use_animation = false
@@ -49,13 +49,13 @@
     {%- capture append_bg_border_style -%}--br-color:{{ se_stts.br_color }};--br-style:{{ se_stts.br_style }};--br-pd:{{ se_stts.br_pd }}px;--br-pd-mb:{{ se_stts.br_pd_mb }}px;--border-bg:{{ br_bg }};{%- endcapture -%}
 {%- endif -%}
 <div class="t4s-section-inner t4s_nt_se_{{ sid }} {{ stt_layout }}" {% render 'section_style', se_stts:se_stts, append_style:append_style -%}>
-    {{-html_layout[0]-}}
+    {{ html_layout[0] }}
 
     <div data-t4s-animate class="t4s-bg-video t4s-row t4s-row-cols-1 t4s-gx-0 t4s_ratio_mix {{se_height}} t4s_ratio_cuspx_mb_{{ se_stts.custom_mb }} t4s_ratio_cuspx_tb_{{ se_stts.custom_tb }} t4s_ratio_cuspx_{{ se_stts.custom_dk }}">
         <div class="t4s-col-item t4s-bg-video-item">
             <div class="t4s-hero-inner t4s-pr t4s-oh t4s_cover" data-video-background data-options='{ "type": "{% if se_stts.source == "1" %}{{se_stts.video_url.type}}{% else %}html5{% endif %}","vid": "{{ se_stts.video_url.id }}","requestHost": "{{ request.host }}","srcDefault": "https://cdn.shopify.com/s/files/1/0610/5209/2628/files/Share_your_brand_story_by_adding_a_video_to_your_store.mp4?v=1641630446" ,"mute": "true", "id":"#tmp-video-{{sid}}" }' style="--ratioapt: {{ image.aspect_ratio | default: 1.7777 }};">
                 <div class="t4s_ratio t4s_position_0" {% if image != blank %} style="background: url({{ image | image_url: width: 1 }})" {%- endif -%}>
-                    
+
                     {%- if image != blank -%}
                         <img class="t4s-img-video t4s-pe-none lazyloadt4s" data-src="{{ image | image_url: width: 1 }}" data-widths="[100,200,400,600,700,800,900,1000,1200,1400,1600]" data-optimumx="2" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt | escape }}">
                     {%- else -%}
@@ -74,7 +74,7 @@
                             {%- assign bk_stts = block.settings -%}
                             {%- case block.type -%}
                                 {%- when 'custom_text' -%}
-                                    {%- assign general_block = true -%} 
+                                    {%- assign general_block = true -%}
                                     {%- if bk_stts.animation != 'none' -%}{%- assign use_animation = true -%} {%- endif -%}
                                     <{{ bk_stts.tag }} data-lh="{{bk_stts.text_lh_mb}}" data-lh-md="{{bk_stts.text_lh_tb}}" data-lh-lg="{{bk_stts.text_lh}}" class="t4s-bl-item t4s-animation-{{ bk_stts.animation }} t4s-text-bl t4s-fnt-fm-{{ bk_stts.fontf }} t4s-font-italic-{{ bk_stts.font_italic }} t4s-hidden-mobile-{{ bk_stts.hidden_mobile }} t4s-hidden-br-mb-{{ bk_stts.remove_br_tag }} t4s-text-shadow-{{ bk_stts.text_shadow }} t4s-rte--list" id="b_{{ block.id }}" {%- render 'bk_cus_style', type: 'custom_text', bk_stts: bk_stts, ani_delay: ani_delay -%}>{{ bk_stts.text }}</{{ bk_stts.tag }}>
                                 {%- when 'space_html' -%}
@@ -119,14 +119,14 @@
                                                 {%- if bk_stts.icon_style == "1" -%}
                                                     <svg  class="t4s-btn-icon" viewBox="0 0 14 10"><use xlink:href="#t4s-icon-btn"></use></svg>
                                                 {%- else -%}
-                                                    <svg class="t4s-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"/></svg>   
+                                                    <svg class="t4s-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"/></svg>
                                                 {%- endif -%}
                                             {%- endif -%}
                                         </a>
                                     {%- endif -%}
                                 {%- when 'custom_text_circle' -%}
                                     {%- if bk_stts.text != blank -%}
-                                        {{ 'text-circle.css' | asset_url | stylesheet_tag }} 
+                                        {{ 'text-circle.css' | asset_url | stylesheet_tag }}
                                         {%- assign image = bk_stts.image_icon -%}
                                         <div class="t4s-bl-item t4s-animation-{{ bk_stts.animation }} t4s-hidden-mobile-{{ bk_stts.hidden_mobile }} t4s-box-text-circle-wrap t4s-size-icon-{{ bk_stts.icon_size }}{% if bk_stts.use_rds %} t4s_ratio1_1 t4s_position_8 t4s_cover {%- endif -%}" {%- render 'bk_cus_style', type: 'custom_text_circle', bk_stts: bk_stts, ani_delay: ani_delay -%}>
                                             <div class="t4s-box-text-circle t4s-pr t4s-oh t4s-d-inline-block">
@@ -185,15 +185,15 @@
             <span class="cd_txtt4 cd-text">%!D:{{ "sections.countdown_text.day" | t }},{{ "sections.countdown_text.day_plural" | t }};</span>
         </span>
         <span class="countdown-hours">
-            <span class="cd_timet4 cd-number">%H</span> 
+            <span class="cd_timet4 cd-number">%H</span>
             <span class="cd_txtt4 cd-text">%!H:{{ "sections.countdown_text.hr" | t }},{{ "sections.countdown_text.hr_plural" | t }};</span>
         </span>
         <span class="countdown-min">
-            <span class="cd_timet4 cd-number">%M</span> 
+            <span class="cd_timet4 cd-number">%M</span>
             <span class="cd_txtt4 cd-text">%!M:{{ "sections.countdown_text.min" | t }},{{ "sections.countdown_text.min_plural" | t }};</span>
         </span>
         <span class="countdown-sec">
-            <span class="cd_timet4 cd-number">%S</span> 
+            <span class="cd_timet4 cd-number">%S</span>
             <span class="cd_txtt4 cd-text">%!S:{{ "sections.countdown_text.sec" | t }},{{ "sections.countdown_text.sec_plural" | t }};</span>
         </span>
     </template>
@@ -272,13 +272,13 @@
             "id": "height_mb",
             "label": "Section height (Mobile)",
             "default": 250
-        }, 
-        {                   
+        },
+        {
             "type":"image_picker",
             "id":"image",
             "label":"Cover image",
-            "info":"Fallback when autoplaying video is not supported on mobile devices"               
-        }, 
+            "info":"Fallback when autoplaying video is not supported on mobile devices"
+        },
         {
             "type": "select",
             "id": "source",
@@ -314,7 +314,7 @@
             "label": "2. Upload file",
             "default":"https://cdn.shopify.com/s/files/1/0610/5209/2628/files/Share_your_brand_story_by_adding_a_video_to_your_store.mp4?v=1641630446",
             "info": "File video link from uploaded files. File size is smaller 4 mb recommended"
-        },*/      
+        },*/
         {"type": "paragraph","content": "——————————————————————"},
         {
             "type": "select",
@@ -515,35 +515,35 @@
             "id": "content_pd_tb",
             "label": "Content padding top/bottom (px)",
             "default": 15,
-            "info": "Working on the Desktop"   
+            "info": "Working on the Desktop"
         },
         {
             "type": "number",
             "id": "content_pd_lr",
             "label": "Content padding left/right (px)",
             "default": 15,
-            "info": "Working on the Desktop"   
+            "info": "Working on the Desktop"
         },
         {
             "type": "number",
             "id": "content_pd_tb_tb",
             "label": "Content padding top/bottom (px)",
             "default": 15,
-            "info": "Working on the Tablet"   
+            "info": "Working on the Tablet"
         },
         {
             "type": "number",
             "id": "content_pd_lr_tb",
             "label": "Content padding left/right (px)",
             "default": 15,
-            "info": "Working on the Tablet"   
+            "info": "Working on the Tablet"
         },
         {
             "type": "number",
             "id": "content_pd_tb_mb",
             "label": "Content padding top/bottom (px)",
             "default": 10,
-            "info": "Working on the Mobile"    
+            "info": "Working on the Mobile"
         },
         {
             "type": "number",
@@ -825,7 +825,7 @@
                     "step": 1,
                     "default": 0,
                     "unit": "px",
-                    "info": "Set '0' to use default"            
+                    "info": "Set '0' to use default"
                 },
                 {
                     "type": "range",
@@ -887,7 +887,7 @@
                     "step": 1,
                     "default": 0,
                     "unit": "px",
-                    "info": "Set '0' to use default"            
+                    "info": "Set '0' to use default"
                 },
                 {
                     "type": "range",
@@ -934,7 +934,7 @@
                     "step": 1,
                     "default": 0,
                     "unit": "px",
-                    "info": "Set '0' to use default"            
+                    "info": "Set '0' to use default"
                 },
                 {
                     "type": "range",
@@ -1563,7 +1563,7 @@
                             "value": "bordered_top"
                         },
                         {
-                            "label": "Bordered bottom", 
+                            "label": "Bordered bottom",
                             "value": "bordered"
                         },
                         {
@@ -2176,13 +2176,13 @@
                     "id": "mgb",
                     "label": "Margin bottom",
                     "default": 15
-                }, 
+                },
                 {
                     "type": "number",
                     "id": "mgb_tb",
                     "label": "Margin bottom (Tablet)",
                     "default": 15
-                }, 
+                },
                 {
                     "type": "number",
                     "id": "mgb_mb",
@@ -2407,7 +2407,7 @@
                     "id": "mgb_tb",
                     "label": "Margin bottom on tablet(Unit: px)",
                     "default": 20
-                }, 
+                },
                 {
                     "type": "paragraph",
                     "content": "————————————————"
@@ -2644,7 +2644,7 @@
                 {
                     "type": "select",
                     "id": "icon_themes",
-                    "label": "Select icon", 
+                    "label": "Select icon",
                     "info": "Only used for source  theme icon",
                     "default": "t4s-flash",
                     "options": [
@@ -2810,7 +2810,7 @@
                     "type": "image_picker",
                     "id": "image_icon",
                     "label": "Chooes image"
-                },            
+                },
                 {
                     "type": "text",
                     "id": "icon",
@@ -2871,7 +2871,7 @@
                             "value": "3"
                         }
                     ]
-                },  
+                },
                 {
                     "type": "color",
                     "id": "text_cl",
@@ -2887,7 +2887,7 @@
                     "step": 5,
                     "unit": "px",
                     "default": 200
-                },     
+                },
                 {
                     "type": "range",
                     "id": "text_fs",
@@ -3162,7 +3162,7 @@
                     ]
                 }
             ]
-        }  
+        }
     ],
     "presets": [
         {
@@ -3172,7 +3172,7 @@
                 {
                     "type": "custom_text",
 					"settings": {
-						"text": "Theme Unsen",
+						"text": "Theme",
 						"text_fs": 16,
 						"text_fw": 400,
 						"text_ls": 1

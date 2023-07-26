@@ -1,21 +1,21 @@
  {%- liquid
   assign sid = section.id
   assign se_stts = section.settings
-  assign se_blocks = section.blocks 
+  assign se_blocks = section.blocks
   assign admin_sp = request.design_mode
   assign h__bgimg = se_stts.h__bgimg
   assign page_type = request.page_type
-  if page_type == 'index' and se_stts.transparent_header 
-    assign h_transparent = true 
+  if page_type == 'index' and se_stts.transparent_header
+    assign h_transparent = true
   elsif page_type == 'collection' and se_stts.transparent_collection and collection.image != blank
-    assign h_transparent = true 
+    assign h_transparent = true
   elsif page_type == 'article' and se_stts.transparent_article and article.image != blank
-    assign h_transparent = true 
+    assign h_transparent = true
   else
-    assign h_transparent = false 
+    assign h_transparent = false
   endif
   assign space_transparent = se_stts.space_transparent_header
-  assign source = se_stts.source 
+  assign source = se_stts.source
 
   assign padding_section = se_stts.pd | remove: ' ' | split: ','
   -%}
@@ -71,10 +71,10 @@
   {%- endif -%}
 
   {%- if se_stts.sticky_header -%}
-  
+
     {%- unless se_stts.scroll_header -%}
     .t4s-hsticky__ready .t4s-section-header {
-        position: sticky;      
+        position: sticky;
         top: 0;
         z-index: 460;
     }
@@ -99,12 +99,12 @@
       display: none !important
     }
   {%- endif -%}
- 
+
   .t4s-section-header [data-header-height] {
-      min-height: {{ se_stts.h_navmb }}px;    
+      min-height: {{ se_stts.h_navmb }}px;
   }
   .t4s-section-header [data-header-height2] {
-      min-height: {{ se_stts.height2 }}px;    
+      min-height: {{ se_stts.height2 }}px;
   }
   .t4s-header__logo img {
     padding-top: 5px;
@@ -152,8 +152,8 @@
   }
   .t4s-site-nav__icon a:hover {
     color: var(--h-text-color-hover);
-  } 
-  .t4s-site-nav__icon a { 
+  }
+  .t4s-site-nav__icon a {
     display: inline-block;
     color: var(--h-text-color);
     line-height: 1;
@@ -211,7 +211,7 @@
     .t4s-site-nav__icons .t4s-site-nav__icon {
         padding: 0 8px;
     }
-    
+
     .t4s-site-nav__icons:not(.t4s-h-cart__design3) .t4s-site-nav__icon.t4s-site-nav__compare, .t4s-site-nav__icons:not(.t4s-h-cart__design3) .t4s-site-nav__icon.t4s-site-nav__heart, .t4s-site-nav__icons:not(.t4s-h-cart__design3) .t4s-site-nav__icon.t4s-site-nav__cart {
       padding: 0 11px;
     }
@@ -229,7 +229,7 @@
   @media (min-width: 1025px) and (max-width:1199px) {
     .t4s-top-bar >.t4s-container, .t4s-header__wrapper >.t4s-container,.t4s-announcement-bar > .t4s-container {
       padding: 0 30px;
-    } 
+    }
   }
   {%- endif -%}
   @media (min-width: 1025px) {
@@ -250,7 +250,7 @@
     }
     {%- endif -%}
       .t4s-section-header [data-header-height] {
-         min-height: {{ se_stts.height }}px;    
+         min-height: {{ se_stts.height }}px;
       }
       {%- if se_stts.full_header -%}
         .t4s-announcement-bar >.t4s-container, .t4s-top-bar >.t4s-container, .t4s-header__wrapper >.t4s-container {
@@ -347,7 +347,7 @@
                 {%- if source == '1' -%}<div class="t4s-split-text">{{- se_stts.txt -}}</div>
                 {%- elsif source == '2' or source == '3' -%}
                   {{ 'icon-social.css' | asset_url | stylesheet_tag }}
-                  {%- liquid 
+                  {%- liquid
                     if source == '3'
                       assign follow_social = true
                     elsif source == '2'
@@ -502,7 +502,6 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
         "unit": "px",
         "default": 62
       },
-      
       {
         "type": "header",
         "content": "+ Header Colors:"
@@ -719,22 +718,22 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
             "value": "6",
             "label": "Currency & Language"
           }
-          
+
         ],
         "label": "Left show:",
         "default": "2"
-      }, 
+      },
       {
         "type": "html",
         "id": "txt",
         "label": "Custom text",
         "info": "Only use for header layout menu split.",
-        "default": "<p style=\"display: flex;align-items: center;margin-bottom: 0; color: var(--h-text-color);\"><svg style=\"margin-right: 5px;fill: currentColor\" enable-background=\"new 0 0 479.058 479.058\" height=\"20\" viewbox=\"0 0 479.058 479.058\" width=\"20\"><path d=\"m434.146 59.882h-389.234c-24.766 0-44.912 20.146-44.912 44.912v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159l-200.355 173.649-200.356-173.649c1.769-.736 3.704-1.159 5.738-1.159zm0 299.411h-389.234c-8.26 0-14.971-6.71-14.971-14.971v-251.648l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z\"><\/path><\/svg> <a class=\"t4s-ct\" href=\"mailto: unsen@domain.com\">Unsen@domain.com<\/a><\/p>"
+        "default": "<p style=\"display: flex;align-items: center;margin-bottom: 0; color: var(--h-text-color);\"><svg style=\"margin-right: 5px;fill: currentColor\" enable-background=\"new 0 0 479.058 479.058\" height=\"20\" viewbox=\"0 0 479.058 479.058\" width=\"20\"><path d=\"m434.146 59.882h-389.234c-24.766 0-44.912 20.146-44.912 44.912v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159l-200.355 173.649-200.356-173.649c1.769-.736 3.704-1.159 5.738-1.159zm0 299.411h-389.234c-8.26 0-14.971-6.71-14.971-14.971v-251.648l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z\"><\/path><\/svg> <a class=\"t4s-ct\" href=\"mailto: sales@harshfabrics.com\">sales@harshfabrics.com<\/a><\/p>"
       },
       {
         "type": "header",
         "content": "+ Sticky header"
-      }, 
+      },
       {
         "type": "checkbox",
         "id": "sticky_header",
@@ -888,7 +887,7 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
         "info": "set is '0' use to default",
         "unit": "px",
         "default": 0
-      }, 
+      },
       {
         "type": "range",
         "id": "sp_nav",
@@ -899,7 +898,7 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
         "info": "Spacing between items on desktop",
         "unit": "px",
         "default": 35
-      }, 
+      },
       {
         "type": "header",
         "content": "+ Design options desktop",
@@ -1058,30 +1057,30 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
             },
             {
             "type": "select",
-            "id": "r_s_h_item", 
+            "id": "r_s_h_item",
             "options": [
               {
-                  "value": "0", 
+                  "value": "0",
                   "label": "0"
               },
               {
-                  "value": "2", 
+                  "value": "2",
                   "label": "2px"
               },
               {
-                  "value": "4", 
+                  "value": "4",
                   "label": "4px"
               },
               {
-                  "value": "6", 
+                  "value": "6",
                   "label": "6px"
               },
               {
-                  "value": "8", 
+                  "value": "8",
                   "label": "8px"
               },
               {
-                  "value": "10", 
+                  "value": "10",
                   "label": "10px"
               },
               {
@@ -1101,27 +1100,27 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
             "id": "r_s_v_item",
             "options": [
               {
-                  "value": "0", 
+                  "value": "0",
                   "label": "0"
               },
               {
-                  "value": "2", 
+                  "value": "2",
                   "label": "2px"
               },
               {
-                  "value": "4", 
+                  "value": "4",
                   "label": "4px"
               },
               {
-                  "value": "6", 
+                  "value": "6",
                   "label": "6px"
               },
               {
-                  "value": "8", 
+                  "value": "8",
                   "label": "8px"
               },
               {
-                  "value": "10", 
+                  "value": "10",
                   "label": "10px"
               },
               {
@@ -1133,7 +1132,7 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
                   "label": "30px"
               }
             ],
-            "label": "Space vertical items", 
+            "label": "Space vertical items",
             "default": "30"
           },
           {
@@ -1142,7 +1141,7 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
             "label": "Padding content inner",
             "info": "Padding top, padding right, padding bottom, padding left. If you do not use it please blank.. Work only on desktop",
             "placeholder": "30px,,30px,",
-            "default": "30px,30px,30px,30px" 
+            "default": "30px,30px,30px,30px"
           }
         ]
        },

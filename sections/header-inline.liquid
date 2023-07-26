@@ -1,28 +1,28 @@
 {%- liquid
   assign se_stts = section.settings
-  assign se_blocks = section.blocks 
+  assign se_blocks = section.blocks
   assign admin_sp = request.design_mode
   assign h__bgimg = se_stts.h__bgimg
   assign page_type = request.page_type
-  if page_type == 'index' and se_stts.transparent_header 
-    assign h_transparent = true 
-  elsif page_type == 'collection' and se_stts.transparent_collection and collection.image != blank 
-    assign h_transparent = true 
+  if page_type == 'index' and se_stts.transparent_header
+    assign h_transparent = true
+  elsif page_type == 'collection' and se_stts.transparent_collection and collection.image != blank
+    assign h_transparent = true
   elsif page_type == 'article' and se_stts.transparent_article and article.image != blank
-    assign h_transparent = true 
+    assign h_transparent = true
   else
-    assign h_transparent = false 
+    assign h_transparent = false
   endif
   assign space_transparent = se_stts.space_transparent_header
   assign col_action_split = '2'
-  if se_stts.show_wis and shop.customer_accounts_enabled and se_stts.account_des == '2' and se_stts.cart_des != '0' and se_stts.show_search or se_stts.custom_html != blank and se_stts.show_compare 
-    assign col_action_split = '3' 
+  if se_stts.show_wis and shop.customer_accounts_enabled and se_stts.account_des == '2' and se_stts.cart_des != '0' and se_stts.show_search or se_stts.custom_html != blank and se_stts.show_compare
+    assign col_action_split = '3'
   endif
   assign padding_section = se_stts.pd | remove: ' ' | split: ','
   -%}
 
 {%- style -%}
-  {%- assign opnav  = se_stts.opnav | divided_by: 100.0 -%} 
+  {%- assign opnav  = se_stts.opnav | divided_by: 100.0 -%}
   .t4s-header__wrapper {
     --h-text-color      : {{ se_stts.clnav }};
     --h-text-color-rgb  : {{ se_stts.clnav | color_to_rgb | remove: 'rgba(' | remove: 'rgb(' | remove: ')' }};
@@ -38,7 +38,7 @@
     --h-count-bgcolor: {{ se_stts.bg_hc }};
     --h-count-color: {{ se_stts.cl_hc }};
   }
-  
+
   {%- if h__bgimg != blank %}
   .t4s-header__bgimg {
       background-size: cover;
@@ -57,7 +57,7 @@
       --h-text-color-hover: {{ se_stts.clnavtr_hover }};
       --h-bg-color        : {{ se_stts.bgnavtr | color_modify: 'alpha', opnavtr }};
       --h-border-rgb: {{ se_stts.bd_cl_tr | color_to_rgb | remove: 'rgba(' | remove: 'rgb(' | remove: ')' }};
-      --h-border-trans-op: {{ se_stts.bd_cl_op | divided_by: 100.0 }}; 
+      --h-border-trans-op: {{ se_stts.bd_cl_op | divided_by: 100.0 }};
       --h-border-w-tr: {%- if se_stts.show_border_tr %}1px{% else %}0px{% endif -%};
       border-bottom: var(--h-border-w-tr) solid rgba( var(--h-border-rgb), var(--h-border-trans-op));
       z-index: 1;
@@ -83,10 +83,10 @@
   {%- endif -%}
 
   {%- if se_stts.sticky_header -%}
-  
+
     {%- unless se_stts.scroll_header -%}
     .t4s-hsticky__ready .t4s-section-header {
-        position: sticky;      
+        position: sticky;
         top: 0;
         z-index: 460;
     }
@@ -111,9 +111,9 @@
       display: none !important
     }
   {%- endif -%}
- 
+
   .t4s-section-header [data-header-height] {
-      min-height: {{ se_stts.h_navmb }}px;    
+      min-height: {{ se_stts.h_navmb }}px;
   }
   .t4s-header__logo img {
     padding-top: 5px;
@@ -151,7 +151,7 @@
   .t4s-site-nav__icon>a:hover svg.t4s-icon {
       color: var(--h-text-color-hover);
   }
-  .t4s-site-nav__icon a { 
+  .t4s-site-nav__icon a {
     display: inline-block;
     line-height: 1;
     color: var(--h-text-color);
@@ -159,7 +159,7 @@
   .t4s-site-nav__icon a:hover {
     color: var(--h-text-color-hover);
 }
-  .t4s-site-nav__cart >a,.t4s-push-menu-btn {color: var(--h-text-color)} 
+  .t4s-site-nav__cart >a,.t4s-push-menu-btn {color: var(--h-text-color)}
   .t4s-site-nav__cart >a:hover {color: var(--h-text-color-hover)}
   .t4s-site-nav__account a.t4s-acc-txt {
     font-size: 12px;
@@ -211,7 +211,7 @@
   @media (min-width: 1025px) and (max-width:1199px) {
     .t4s-top-bar >.t4s-container, .t4s-header__wrapper >.t4s-container,.t4s-announcement-bar > .t4s-container {
       padding: 0 30px;
-    } 
+    }
   }
   {%- endif -%}
   .t4s-use__label .t4s-site-nav__icon a {
@@ -219,7 +219,7 @@
   }
   @media (min-width: 1025px) {
       .t4s-section-header [data-header-height] {
-         min-height: {{ se_stts.height }}px;    
+         min-height: {{ se_stts.height }}px;
       }
       .t4s-site-nav__icons.t4s-use__label .t4s-site-nav__icon {
         padding: 0 15px;
@@ -228,7 +228,7 @@
       .t4s-announcement-bar >.t4s-container, .t4s-top-bar >.t4s-container, .t4s-header__wrapper >.t4s-container {
           max-width:100%;
       }
-     
+
       {%- else -%}
          {%- if space_transparent and h_transparent -%}
           .is--topbar-transparent.is--header-transparent #shopify-section-top-bar,
@@ -296,7 +296,7 @@
         transition: width 0.3s ease;
       }
       .t4s-nav__ul>li> a:hover::after{background-color: var(--h-text-color-hover);}
-      
+
       .t4s-nav__ul>li.is--nav__active> a::after,
       .t4s-nav__ul>li> a:hover::after {width:calc(100% - {{ se_stts.sp_nav }}px)}
 
@@ -310,7 +310,7 @@
         right: 0;
         width:calc(100% - calc(0.5 * {{ se_stts.sp_nav }}px) )
       }
-      .rtl_true .t4s-nav__ul>li> a::after{ 
+      .rtl_true .t4s-nav__ul>li> a::after{
         left:auto;
         right: calc(0.5 * {{ se_stts.sp_nav }}px);
       }
@@ -339,7 +339,7 @@
       }
       .t4s-nav__ul>li> a::after {
         left: 15px;
-      }      
+      }
       .t4s-nav__ul>li.is--nav__active> a::after,
       .t4s-nav__ul>li> a:hover::after {width:calc(100% - 30px)}
 
@@ -351,7 +351,7 @@
       .t4s-nav__ul>li.is--nav__active:last-child> a::after{
         width:calc(100% - 15px);
       }
-      .rtl_true .t4s-nav__ul>li> a::after{ 
+      .rtl_true .t4s-nav__ul>li> a::after{
         right: 15px;
       }
       .rtl_true .t4s-nav__ul>li:last-child> a:hover::after,
@@ -363,7 +363,7 @@
       }
       .t4s-header-layout_menu_split .t4s-nav__ul>li> a::after {
         left: 7px;
-      }      
+      }
       .t4s-header-layout_menu_split .t4s-nav__ul>li.is--nav__active> a::after,
       .t4s-header-layout_menu_split .t4s-nav__ul>li> a:hover::after {width:calc(100% - 14px)}
 
@@ -377,7 +377,7 @@
         right:7px;
         width:calc(100% - 14px);
       }
-      .rtl_true .t4s-header-layout_menu_split .t4s-nav__ul>li> a::after{ 
+      .rtl_true .t4s-header-layout_menu_split .t4s-nav__ul>li> a::after{
         right: 7px;
       }
       .rtl_true .t4s-header-layout_menu_split .t4s-nav__ul>li:last-child> a:hover::after,
@@ -391,7 +391,7 @@
       }
       .t4s-header-layout_menu_split .t4s-nav__ul>li> a::after {
         left: 10px;
-      }      
+      }
       .t4s-header-layout_menu_split .t4s-nav__ul>li.is--nav__active> a::after,
       .t4s-header-layout_menu_split .t4s-nav__ul>li> a:hover::after {width:calc(100% - 20px)}
 
@@ -405,22 +405,22 @@
         right:10px;
         width:calc(100% - 20px);
       }
-      .rtl_true .t4s-header-layout_menu_split .t4s-nav__ul>li> a::after{ 
+      .rtl_true .t4s-header-layout_menu_split .t4s-nav__ul>li> a::after{
         right: 10px;
       }
       .rtl_true .t4s-header-layout_menu_split .t4s-nav__ul>li:last-child> a:hover::after,
       .rtl_true .t4s-header-layout_menu_split .t4s-nav__ul>li.is--nav__active:last-child> a::after{right: 10px;}
       .rtl_true .t4s-header-layout_menu_split .t4s-nav__ul>li:first-child> a:hover::after,
       .rtl_true .t4s-header-layout_menu_split .t4s-nav__ul>li.is--nav__active:first-child> a::after{right: 0px;width: calc(100% - 10px);}
-      
-    }  
+
+    }
     @media(min-width: 1401px) and (max-width:1600px){
       .t4s-header-layout_menu_split .t4s-nav__ul>li> a {
         padding: 5px 15px;
       }
       .t4s-header-layout_menu_split .t4s-nav__ul>li> a::after {
         left: 15px;
-      }      
+      }
       .t4s-header-layout_menu_split .t4s-nav__ul>li.is--nav__active> a::after,
       .t4s-header-layout_menu_split .t4s-nav__ul>li> a:hover::after {width:calc(100% - 30px)}
 
@@ -434,7 +434,7 @@
         right:15px;
         width:calc(100% - 30px);
       }
-      .rtl_true .t4s-header-layout_menu_split .t4s-nav__ul>li> a::after{ 
+      .rtl_true .t4s-header-layout_menu_split .t4s-nav__ul>li> a::after{
         right: 15px;
       }
       .rtl_true .t4s-header-layout_menu_split .t4s-nav__ul>li:last-child> a:hover::after,
@@ -442,7 +442,7 @@
       .rtl_true .t4s-header-layout_menu_split .t4s-nav__ul>li:first-child> a:hover::after,
       .rtl_true .t4s-header-layout_menu_split .t4s-nav__ul>li.is--nav__active:first-child> a::after{right: 0px;width: calc(100% - 15px);}
     }
-  {%- endif -%}  
+  {%- endif -%}
   .t4s-site-nav__icons.t4s-use__unsen2 svg.t4s-icon {
     width: 18px;
     height: 18px;
@@ -488,13 +488,13 @@
         <div class="t4s-col-lg-{% if se_stts.align == 'center' %}{{ col_action_split }}{% else %}auto{% endif %} t4s-col-md-4 t4s-col-6 t4s-text-center t4s-text-lg-start t4s-col-item">{%- render 't4s_logo', tag: 'div', isTransparent: h_transparent -%}</div>
         <div class="t4s-col t4s-d-none t4s-d-lg-block t4s-col-item">{%- render 'menu_blocks', placement: 'bottom', admin_sp: admin_sp, se_blocks: se_blocks, se_stts: se_stts -%}</div>
         <div class="t4s-col-lg-{% if se_stts.align == 'center' %}{{ col_action_split }}{% else %}auto{% endif %} t4s-col-md-4 t4s-col-3 t4s-text-end t4s-col-group_btns t4s-col-item t4s-lh-1">{%- render 't4s_group_btns', se_stts: se_stts -%}</div>
-    
+
       {%- when 'logo_center' -%}
         <div class="t4s-col-md-4 t4s-col-3 t4s-d-lg-none t4s-col-item">{%- render 'push_menu' -%}</div>
         <div class="t4s-col-5 t4s-d-none t4s-d-lg-block t4s-col-item">{%- render 'menu_blocks', placement: 'bottom', admin_sp: admin_sp, se_blocks: se_blocks, se_stts: se_stts -%}</div>
         <div class="t4s-col-lg-2 t4s-col-md-4 t4s-col-6 t4s-text-center t4s-col-item">{%- render 't4s_logo', tag: 'div', isTransparent: h_transparent -%}</div>
         <div class="t4s-col-lg-5 t4s-col-md-4 t4s-col-3 t4s-text-end t4s-col-group_btns t4s-col-item t4s-lh-1">{%- render 't4s_group_btns', se_stts: se_stts -%}</div>
-      
+
       {%- when 'menu_split' -%}
         <div class="t4s-col-md-4 t4s-col-3 t4s-d-lg-none t4s-col-item">{%- render 'push_menu' -%}</div>
         <div class="t4s-col-lg-{{ col_action_split }} t4s-d-lg-block t4s-d-none t4s-col-group_btns t4s-col-item t4s-lh-1">{%- render 't4s_group_btns_split', se_stts: se_stts, isSplit1: true -%}</div>
@@ -560,7 +560,7 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
         "label": "Enable full width",
         "default": true
       },
-      
+
       {
         "type": "header",
         "content": "+ Options only working desktop"
@@ -644,7 +644,7 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
         "unit": "px",
         "default": 62
       },
-      
+
       {
         "type": "header",
         "content": "+ Header Colors:"
@@ -882,12 +882,12 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
         "id": "custom_html",
         "label": "Custom text",
         "info": "Only use for header layout menu split.",
-        "default": "<p style=\"display: flex;align-items: center;margin-bottom: 0; color: var(--h-text-color);\"><svg style=\"margin-right: 5px;fill: currentColor\" enable-background=\"new 0 0 479.058 479.058\" height=\"20\" viewbox=\"0 0 479.058 479.058\" width=\"20\"><path d=\"m434.146 59.882h-389.234c-24.766 0-44.912 20.146-44.912 44.912v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159l-200.355 173.649-200.356-173.649c1.769-.736 3.704-1.159 5.738-1.159zm0 299.411h-389.234c-8.26 0-14.971-6.71-14.971-14.971v-251.648l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z\"><\/path><\/svg> <a class=\"t4s-ct\" href=\"mailto: unsen@domain.com\">Unsen@domain.com<\/a><\/p>"
+        "default": "<p style=\"display: flex;align-items: center;margin-bottom: 0; color: var(--h-text-color);\"><svg style=\"margin-right: 5px;fill: currentColor\" enable-background=\"new 0 0 479.058 479.058\" height=\"20\" viewbox=\"0 0 479.058 479.058\" width=\"20\"><path d=\"m434.146 59.882h-389.234c-24.766 0-44.912 20.146-44.912 44.912v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159l-200.355 173.649-200.356-173.649c1.769-.736 3.704-1.159 5.738-1.159zm0 299.411h-389.234c-8.26 0-14.971-6.71-14.971-14.971v-251.648l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z\"><\/path><\/svg> <a class=\"t4s-ct\" href=\"mailto: sales@harshfabrics.com\">sales@harshfabrics.com<\/a><\/p>"
       },
       {
         "type": "header",
         "content": "+ Sticky header"
-      }, 
+      },
       {
         "type": "checkbox",
         "id": "sticky_header",
@@ -1063,7 +1063,7 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
         "info": "set is '0' use to default",
         "unit": "px",
         "default": 0
-      }, 
+      },
       {
         "type": "range",
         "id": "sp_nav",
@@ -1074,7 +1074,7 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
         "info": "Spacing between items on desktop",
         "unit": "px",
         "default": 35
-      }, 
+      },
       {
         "type": "header",
         "content": "+ Design options desktop",
@@ -1212,7 +1212,7 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
               "max": 1500,
               "step": 20,
               "unit": "px",
-              "default": 1400 
+              "default": 1400
             },
             {
               "type": "range",
@@ -1233,30 +1233,30 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
             },
             {
             "type": "select",
-            "id": "r_s_h_item", 
+            "id": "r_s_h_item",
             "options": [
               {
-                  "value": "0", 
+                  "value": "0",
                   "label": "0"
               },
               {
-                  "value": "2", 
+                  "value": "2",
                   "label": "2px"
               },
               {
-                  "value": "4", 
+                  "value": "4",
                   "label": "4px"
               },
               {
-                  "value": "6", 
+                  "value": "6",
                   "label": "6px"
               },
               {
-                  "value": "8", 
+                  "value": "8",
                   "label": "8px"
               },
               {
-                  "value": "10", 
+                  "value": "10",
                   "label": "10px"
               },
               {
@@ -1276,27 +1276,27 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
             "id": "r_s_v_item",
             "options": [
               {
-                  "value": "0", 
+                  "value": "0",
                   "label": "0"
               },
               {
-                  "value": "2", 
+                  "value": "2",
                   "label": "2px"
               },
               {
-                  "value": "4", 
+                  "value": "4",
                   "label": "4px"
               },
               {
-                  "value": "6", 
+                  "value": "6",
                   "label": "6px"
               },
               {
-                  "value": "8", 
+                  "value": "8",
                   "label": "8px"
               },
               {
-                  "value": "10", 
+                  "value": "10",
                   "label": "10px"
               },
               {
@@ -1308,7 +1308,7 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
                   "label": "30px"
               }
             ],
-            "label": "Space vertical items", 
+            "label": "Space vertical items",
             "default": "30"
           },
           {
@@ -1317,7 +1317,7 @@ document.documentElement.style.setProperty('--header-height', document.getElemen
             "label": "Padding content inner",
             "info": "Padding top, padding right, padding bottom, padding left. If you do not use it please blank.. Work only on desktop",
             "placeholder": "30px,,30px,",
-            "default": "30px,30px,30px,30px" 
+            "default": "30px,30px,30px,30px"
           }
         ]
        },

@@ -8,14 +8,14 @@
   assign se_blocks = section.blocks
   assign stt_layout = se_stts.layout
   assign stt_image_bg = se_stts.image_bg
-  if stt_layout == 't4s-se-container' 
+  if stt_layout == 't4s-se-container'
     assign html_layout = '<div class="t4s-container">__</div></div>' | split: '__'
   elsif stt_layout == 't4s-container-wrap'
     assign html_layout = '<div class="t4s-container">__</div>' | split: '__'
   else
     assign html_layout = '__' | split: '__'
   endif
-  assign index = 0 
+  assign index = 0
   assign index2 = 1
   assign arr_item = section.blocks | where: "type", 'bl_col'
   assign use_link_vendor = settings.use_link_vendor
@@ -26,8 +26,8 @@
  -%}
 <div class="t4s-section-inner t4s_se_{{ sid }} {{ stt_layout }} {%- if stt_image_bg != blank and stt_layout != 't4s-se-container' -%}  t4s-has-imgbg lazyloadt4s {%- endif -%}"  {% if stt_image_bg != blank and stt_layout != 't4s-se-container' %}  data-bgset="{{ stt_image_bg | image_url: width: 1 }}" data-sizes="auto"  data-optimumx="1.5" {% endif %}   {% render 'section_style', se_stts: se_stts %}>
     {{- html_layout[0] -}}
-    {%- if stt_layout == 't4s-se-container' -%}<div class="t4s-container-inner {% if stt_image_bg != blank %} t4s-has-imgbg lazyloadt4s {% endif %} "  {% if stt_image_bg != blank %}  data-bgset="{{ stt_image_bg | image_url: width: 1 }}" data-sizes="auto"  data-optimumx="1.5" {% endif %} > {%- endif -%} 
-      <div class="t4s-row t4s-gx-lg-{{ se_stts.space_h_item }} t4s-gy-lg-{{ se_stts.space_v_item }} t4s-gx-md-{{ se_stts.space_h_item_tb }} t4s-gy-md-{{ se_stts.space_v_item_tb }} t4s-gx-{{ se_stts.space_h_item_mb }} t4s-gy-{{ se_stts.space_v_item_mb }}"> 
+    {%- if stt_layout == 't4s-se-container' -%}<div class="t4s-container-inner {% if stt_image_bg != blank %} t4s-has-imgbg lazyloadt4s {% endif %} "  {% if stt_image_bg != blank %}  data-bgset="{{ stt_image_bg | image_url: width: 1 }}" data-sizes="auto"  data-optimumx="1.5" {% endif %} > {%- endif -%}
+      <div class="t4s-row t4s-gx-lg-{{ se_stts.space_h_item }} t4s-gy-lg-{{ se_stts.space_v_item }} t4s-gx-md-{{ se_stts.space_h_item_tb }} t4s-gy-md-{{ se_stts.space_v_item_tb }} t4s-gx-{{ se_stts.space_h_item_mb }} t4s-gy-{{ se_stts.space_v_item_mb }}">
       {%- for block in arr_item offset: index -%}
         {%- liquid assign bk_stts = block.settings
           assign index = index | plus: 1
@@ -42,15 +42,15 @@
           assign time_ani_delay = bk_stts.time_animation | times: percent_delay -%}
             <div data-t4s-animate class="t4s-custom-col t4s-col-item t4s-col-lg-{{ bk_stts.col_dk }} t4s-col-md-{{ bk_stts.col_tb }} t4s-col-{{ bk_stts.col_mb }} bl-{{ block.id }}"{% if bk_stts.col_dk == 'custom' or bk_stts.col_tb == 'custom' %} style="--t4s-cus-col-lg:{{ bk_stts.col_dk_w | remove: ' ' }}%;--t4s-cus-col-md:{{bk_stts.col_dk_w_tb | remove: ' ' }}%;"{% endif %}>
               <div class="t4s-col-inner t4s-oh t4s-ver-center-{{ bk_stts.align_vertical }} t4s-text-lg-{{ bk_stts.content_align }} t4s-text-md-{{ bk_stts.content_align_tablet }} t4s-text-{{ bk_stts.content_align_mobile }} {% if bk_stts.bg_image != blank -%}  lazyloadt4s t4s-has-imgbg {%- endif -%}"  {%- if bk_stts.bg_image != blank -%}  data-bgset="{{ bk_stts.bg_image | image_url: width: 1 }}" data-sizes="auto"  data-optimumx="1.5" {%- endif -%}  style="--time-animation: {{ bk_stts.time_animation }}s;--bg-cl: {{ bk_stts.bg_cl }};--pd-top: {{ pd_item[0] | default: 0 }};--pd-right: {{ pd_item[1] | default: 0 }};--pd-bottom: {{ pd_item[2] | default: 0 }};--pd-left: {{ pd_item[3] | default: 0 }};--pd-tb-top: {{ pd_item_tb[0] | default: 0 }};--pd-tb-right: {{ pd_item_tb[1] | default: 0 }};--pd-tb-bottom: {{ pd_item_tb[2] | default: 0 }};--pd-tb-left: {{ pd_item_tb[3] | default: 0 }};--pd-mb-top: {{ pd_item_mb[0] | default: 0 }};--pd-mb-right: {{ pd_item_mb[1] | default: 0 }};--pd-mb-bottom: {{ pd_item_mb[2] | default: 0 }};--pd-mb-left: {{ pd_item_mb[3] | default: 0 }};--round-inner: {{ round_inner[0] | default: 0 }} {{ round_inner[1] | default: 0 }} {{ round_inner[2] | default: 0 }} {{ round_inner[3] | default: 0 }};--round-tb-inner: {{ round_tb_inner[0] | default: 0 }} {{ round_tb_inner[1] | default: 0 }} {{ round_tb_inner[2] | default: 0 }} {{ round_tb_inner[3] | default: 0 }};--round-mb-inner: {{ round_mb_inner[0] | default: 0 }} {{ round_mb_inner[1] | default: 0 }} {{ round_mb_inner[2] | default: 0 }} {{ round_mb_inner[3] | default: 0 }};">
-                <div class="t4s-w-100"> 
+                <div class="t4s-w-100">
                   {%- for block in se_blocks offset: index2 -%}
                     {%- liquid
                       assign index2 = index2 | plus: 1
                       assign bk_stts = block.settings
-                      if block.type != "bl_col" 
-                      else 
-                        break  
-                      endif -%}  
+                      if block.type != "bl_col"
+                      else
+                        break
+                      endif -%}
                     {%- case block.type -%}
                       {%- when 'custom_text' -%}
                         {% if bk_stts.text != blank %}
@@ -90,7 +90,7 @@
                         {% endif %}
                       {%- when 'custom_text_circle' -%}
                         {% if bk_stts.text != blank %}
-                          {{ 'text-circle.css' | asset_url | stylesheet_tag }} 
+                          {{ 'text-circle.css' | asset_url | stylesheet_tag }}
                           {%- assign image = bk_stts.image_icon -%}
                           <div class="t4s-box-text-circle-wrap t4s-text-md-{{ bk_stts.box_align_tb }} t4s-text-lg-{{ bk_stts.box_align }} t4s-text-{{ bk_stts.box_align_mb }} t4s-hidden-mobile-{{ bk_stts.hidden_mobile }} t4s-size-icon-{{ bk_stts.icon_size }} {% if bk_stts.use_rds %}t4s_ratio1_1 t4s_position_8 t4s_cover {%- endif -%}" {%- render 'bk_cus_style', type: 'custom_text_circle', bk_stts: bk_stts -%}>
                             <div class="t4s-box-text-circle t4s-pr t4s-oh t4s-d-inline-block">
@@ -129,40 +129,40 @@
                         {% if bk_stts.html_content != blank %}
                           {%- assign general_block = true -%}
                             <div class=" t4s-raw-html t4s-rte--list t4s-hidden-mobile-{{ bk_stts.hidden_mobile }}" id="b_{{ block.id }}" {%- render 'bk_cus_style', type: 'html', bk_stts: bk_stts -%}>{{ bk_stts.html_content }}</div>
-                          {% endif %}  
+                          {% endif %}
                       {%- when 'image' -%}
-                        {%- liquid 
+                        {%- liquid
                           assign general_block = true
                           assign image = bk_stts.image_child
                           if bk_stts.img_link != blank
-                            assign ARRhtml = 'a,,' | split: ',' 
+                            assign ARRhtml = 'a,,' | split: ','
                           else
-                            assign ARRhtml = 'div,data-,data-' | split: ',' 
-                          endif 
+                            assign ARRhtml = 'div,data-,data-' | split: ','
+                          endif
                        -%}
                         <div class="t4s-img-child t4s-bl-item t4s-animation-{{ bk_stts.animation }} t4s-hidden-mobile-{{ bk_stts.hidden_mobile }} t4s-pr t4s-text-md-{{ bk_stts.img_align_tb }} t4s-text-lg-{{ bk_stts.img_align }} t4s-text-{{ bk_stts.img_align_mobile }}" id="b_{{ block.id }}" {%- render 'bk_cus_style', type: 'image', bk_stts: bk_stts, ani_delay: ani_delay -%}>
-                          <{{ ARRhtml[0] }} {{ ARRhtml[1] }}href="{{ bk_stts.img_link }}" {{ ARRhtml[2] }}target="{{ bk_stts.open_link }}" class="t4s-pr t4s-img-inner t4s-eff-{{ bk_stts.b_effect }} t4s-oh"> 
+                          <{{ ARRhtml[0] }} {{ ARRhtml[1] }}href="{{ bk_stts.img_link }}" {{ ARRhtml[2] }}target="{{ bk_stts.open_link }}" class="t4s-pr t4s-img-inner t4s-eff-{{ bk_stts.b_effect }} t4s-oh">
                             {%- if image != blank -%}
                               <img class="lazyloadt4s t4s-lz--fadeIn t4s-obj-eff" data-src="{{ image | image_url: width: 1 }}" data-widths="[100,200,400,600,700,800,900,1000,1200,1400,1600]" data-optimumx="2" data-sizes="auto" src="{% render 'img_svg', w: image.width, h: image.height %}" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt | escape }}">
                             {%- else -%}
-                              {{ 'image' | placeholder_svg_tag: 't4s-placeholder-svg t4s-svg-bg1 t4s-obj-eff' }} 
+                              {{ 'image' | placeholder_svg_tag: 't4s-placeholder-svg t4s-svg-bg1 t4s-obj-eff' }}
                             {%- endif -%}
                           </{{ ARRhtml[0] }}>
                         </div>
                       {%- when 'image_gallery' -%}
-                        {%- liquid 
+                        {%- liquid
                           assign general_block = true
                           assign image = bk_stts.image_child
                           if bk_stts.img_link != blank
-                            assign ARRhtml = 'a,,' | split: ',' 
+                            assign ARRhtml = 'a,,' | split: ','
                           else
-                            assign ARRhtml = 'div,data-,data-' | split: ',' 
-                          endif 
+                            assign ARRhtml = 'div,data-,data-' | split: ','
+                          endif
                        -%}
-                        {% if bk_stts.use_hover_gallery %}{{ 'img-gallery-hover.css' | asset_url | stylesheet_tag }}{%- endif -%} 
-                       
+                        {% if bk_stts.use_hover_gallery %}{{ 'img-gallery-hover.css' | asset_url | stylesheet_tag }}{%- endif -%}
+
                           <div class="t4s-gallery-child t4s-img-child t4s-circle-txt-{{ bk_stts.box_txt_align }} t4s-hidden-mobile-{{ bk_stts.hidden_mobile }} t4s-pr t4s-text-{{ bk_stts.img_align }} t4s-hover-gallery-{{ bk_stts.use_hover_gallery }} t4s-shadow-gallery-{{ bk_stts.use_shadow_gallery }}" id="b_{{ block.id }}" {%- render 'bk_cus_style', type: 'image_gallery', bk_stts: bk_stts -%}>
-                            <{{ ARRhtml[0] }} {{ ARRhtml[1] }}href="{{ bk_stts.img_link }}" {{ ARRhtml[2] }}target="{{ bk_stts.open_link }}" class="t4s-pr t4s-img-inner" {% if bk_stts.use_txt %}{%- render 'bk_cus_style', type: 'custom_text_circle', bk_stts: bk_stts -%}{% endif %}> 
+                            <{{ ARRhtml[0] }} {{ ARRhtml[1] }}href="{{ bk_stts.img_link }}" {{ ARRhtml[2] }}target="{{ bk_stts.open_link }}" class="t4s-pr t4s-img-inner" {% if bk_stts.use_txt %}{%- render 'bk_cus_style', type: 'custom_text_circle', bk_stts: bk_stts -%}{% endif %}>
                               <div class="t4w-wrap-img t4s-pr t4s-w-100">
                                 {%- if image != blank -%}{%- assign ratio = image.aspect_ratio -%}
                                   <div class="t4s-img-w t4s-pr t4s-d-inline-block t4s_position_8 t4s_ratioadapt t4s_cover">
@@ -184,18 +184,18 @@
                                       assign img_pos_t_id = bk_stts[img_pos_t]
                                       assign img_pos_l_id  = bk_stts[img_pos_l] -%}
                                   {%- if img_id != blank -%}
-                                    <div class="t4s-img-layer t4s-{{ img }} t4s-w-100" style="--layer-w: {{ img_w_id }}%;--ps-top: {{ img_pos_t_id }}%;--ps-left: {{ img_pos_l_id }}%;"> 
+                                    <div class="t4s-img-layer t4s-{{ img }} t4s-w-100" style="--layer-w: {{ img_w_id }}%;--ps-top: {{ img_pos_t_id }}%;--ps-left: {{ img_pos_l_id }}%;">
                                       <div class="t4s-pa t4s-img-layer-innner">
                                         <img class="lazyloadt4s t4s-lz--fadeIn t4s-obj-eff" data-src="{{ img_id | image_url: width: 1 }}" data-widths="[100,200,400,600,700,800,900,1000,1200,1400,1600]" data-optimumx="2" data-sizes="auto" src="{% render 'img_svg', w: img_id.width, h: img_id.height %}" width="{{ img_id.width }}" height="{{ img_id.height }}" alt="{{ img_id.alt | escape }}">
                                         <span class="lazyloadt4s-loader is-bg-img" style="background: url({{ img_id | image_url: width: 1 }});"></span>
                                       </div>
                                     </div>
-                                  {%- endif -%} 
+                                  {%- endif -%}
                                 {%- endfor -%}
-                              </div>   
+                              </div>
                               {% if bk_stts.text != blank and bk_stts.use_txt %}
                                 {{ 'text-circle.css' | asset_url | stylesheet_tag }}
-                                <style>@media (max-width:calc({{ bk_stts.box_text_width }}px + {{ settings.cus_w_bd }}px)){.t4s-img-child .t4s-img-inner {margin: 0 !important; }}</style> 
+                                <style>@media (max-width:calc({{ bk_stts.box_text_width }}px + {{ settings.cus_w_bd }}px)){.t4s-img-child .t4s-img-inner {margin: 0 !important; }}</style>
                                 <div class="t4s-box-text-circle-wrap t4s-text-md-{{ bk_stts.box_align_tb }} t4s-text-{{ bk_stts.box_align_mb }} t4s-hidden-mobile-{{ bk_stts.hidden_mobile_txt }}">
                                   <div class="t4s-box-text-circle t4s-pr t4s-oh t4s-d-inline-block">
                                     <svg viewbox="0 0 100 100" class="t4s-text-circle">
@@ -208,7 +208,7 @@
                                 </div>
                               {% endif %}
                             </{{ ARRhtml[0] }}>
-                          </div> 
+                          </div>
                       {%- when "countdown" -%}
                         {%- if bk_stts.date != blank -%}
                         {%- assign countdown = true -%}
@@ -229,17 +229,17 @@
                           {%- render 'newsletter', layout: bk_stts.newl_des, form_id: block.id, source_btn: bk_stts.source_btn, buttonIcon: bk_stts.news_icon -%}
                           </div>
                       {%- when 'img_pin' -%}
-                        {{ 'lookbook.css' | asset_url | stylesheet_tag }} 
+                        {{ 'lookbook.css' | asset_url | stylesheet_tag }}
                         {{ 'base_drop.min.css' | asset_url | stylesheet_tag }}
                         {{ 'collection-products.css' | asset_url | stylesheet_tag }}
-                        {%-liquid 
+                        {%-liquid
                             assign image = bk_stts.image
                             assign IsIMG = false
                             if image != blank
                               assign IsIMG = true
-                            endif 
+                            endif
                        -%}
-                        <div class="t4s-pr t4s-lookbook-wrapper"> 
+                        <div class="t4s-pr t4s-lookbook-wrapper">
                             <div class="t4s-lookbook-img t4s-pr t4s-oh t4s_position_8 t4s_ratioadapt t4s_cover">
                               {%- if IsIMG -%}{%- assign ratio = image.aspect_ratio -%}
                                 <div class="t4s-lookbook-img-wrap t4s_ratio t4s-bg-11" style="--aspect-ratioapt: {{ ratio | default: 1.7777 }};background: url({{ image | image_url: width: 1 }});">
@@ -247,7 +247,7 @@
                                 </div>
                               {%- else -%}
                                 {%- capture current -%}{% cycle 1, 2 %}{%- endcapture -%}
-                                {{ 'lifestyle-' | append: current | placeholder_svg_tag: 't4s-placeholder-svg t4s-svg-bg1' }}  
+                                {{ 'lifestyle-' | append: current | placeholder_svg_tag: 't4s-placeholder-svg t4s-svg-bg1' }}
                               {%- endif -%}
                             </div>
                             {%- for i in (1..5) -%}
@@ -269,8 +269,8 @@
                                     assign pos_popup_id = bk_stts[pos_popup]
                                     assign shorttxt_id  = bk_stts[shorttxt] -%}
                                 {%- if product_id != blank -%}
-                                <span data-bid="t4s_{{ bk_stts.id }}{{ product_id.id }}" data-pin-popup data-position="{{ pos_popup_id }}" data-is-pr data-href="{{ root_url }}products/{{ product_id }}" data-sid="render-pr_lb{{ bk_stts.pr_pin_des }}" class="t4s-lookbook-pin is-type__pr pin__size--{{ bk_stts.pos_size }} pin_ic_{{ type_id }}" {{ 
-                                block.shopify_attributes }} style="--ps-top: {{ pos_t_id }}%;--ps-left: {{ pos_l_id }}%;--bg-pin: {{ bg_cl_id }};--cl-pin: {{ cl_text_id }};"> 
+                                <span data-bid="t4s_{{ bk_stts.id }}{{ product_id.id }}" data-pin-popup data-position="{{ pos_popup_id }}" data-is-pr data-href="{{ root_url }}products/{{ product_id }}" data-sid="render-pr_lb{{ bk_stts.pr_pin_des }}" class="t4s-lookbook-pin is-type__pr pin__size--{{ bk_stts.pos_size }} pin_ic_{{ type_id }}" {{
+                                block.shopify_attributes }} style="--ps-top: {{ pos_t_id }}%;--ps-left: {{ pos_l_id }}%;--bg-pin: {{ bg_cl_id }};--cl-pin: {{ cl_text_id }};">
                                   <span class="t4s-zoompin"></span>
                                   <span class="t4s-pin-tt">
                                     {%- if type_id != '3' -%}<i class="t4s-nav-link-icon"></i>
@@ -278,12 +278,12 @@
                                     {%- endif -%}
                                   </span>
                                 </span>
-                                {%- endif -%} 
-                            {%- endfor -%}   
+                                {%- endif -%}
+                            {%- endfor -%}
                         </div>
                         {%- when 'banner' -%}
                         {%- assign banner = true -%}
-                        {{ 'banner-custom.css' | asset_url | stylesheet_tag }} 
+                        {{ 'banner-custom.css' | asset_url | stylesheet_tag }}
                         {%-liquid
                           assign pd_content = bk_stts.padding_inner_bn | remove: ' ' | split: ','
                           assign pd_content_tb = bk_stts.padding_inner_bn_tb | remove: ' ' | split: ','
@@ -295,17 +295,17 @@
                             assign ARRhtml = 'div,data-,data-' | split: ','
                           endif
                           if bk_stts.image_ratio == "ratioadapt"
-                            assign imgatt = '' 
-                          else 
+                            assign imgatt = ''
+                          else
                             assign imgatt = 'data-'
-                          endif    
+                          endif
                        -%}
                         <div id="b_{{ block.id }}" class="t4s-bn-wrap t4s-custom-space t4s-pr t4s-d-block t4s-eff-img-{{ bk_stts.img_effect }} t4s-bn-{{ bk_stts.bn_des }} t4s_position_8 t4s_ratioadapt t4s_cover" style="--aspect-ratioapt: {{ image.aspect_ratio | default: 1 }};--pdbn: {{ pd_content[0] | default: 0 }} {{ pd_content[1] | default: 0 }} {{ pd_content[2] | default: 0 }} {{ pd_content[3] | default: 0 }};--pdbn-tb: {{ pd_content_tb[0] | default: 0 }} {{ pd_content_tb[1] | default: 0 }} {{ pd_content_tb[2] | default: 0 }} {{ pd_content_tb[3] | default: 0 }};--pdbn-mb: {{ pd_content_mb[0] | default: 0 }} {{ pd_content_mb[1] | default: 0 }} {{ pd_content_mb[2] | default: 0 }} {{ pd_content_mb[3] | default: 0 }};--mgb-box: {{ bk_stts.mgb_box }}px;--mgb-box-tb: {{ bk_stts.mgb_box_tb }}px;--mgb-box-mb: {{ bk_stts.mgb_box_mb }}px;">
-                          <{{ ARRhtml[0] }} {{ ARRhtml[1] }}href="{{ bk_stts.button_link }}" {{ ARRhtml[2] }}target="{{ bk_stts.target_link }}" class="t4s-d-block t4s-oh t4s_ratio t4s-bg-11"{% if image != blank %} style="background: url({{ image | image_url: width: 1 }});"{% endif %}> 
+                          <{{ ARRhtml[0] }} {{ ARRhtml[1] }}href="{{ bk_stts.button_link }}" {{ ARRhtml[2] }}target="{{ bk_stts.target_link }}" class="t4s-d-block t4s-oh t4s_ratio t4s-bg-11"{% if image != blank %} style="background: url({{ image | image_url: width: 1 }});"{% endif %}>
                             {%- if image != blank -%}
                                 <img class="lazyloadt4s t4s-lz--fadeIn t4s-obj-eff" data-src="{{ image | image_url: width: 1 }}" data-widths="[100,200,400,600,700,800,900,1000,1200,1400,1600]" data-optimumx="2" data-sizes="auto" src="{% render 'img_svg', w: image.width, h: image.height %}" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt | escape }}">
                             {%- else -%}
-                              {{ 'image' | placeholder_svg_tag: 't4s-placeholder-svg t4s-svg-bg1 t4s-obj-eff' }} 
+                              {{ 'image' | placeholder_svg_tag: 't4s-placeholder-svg t4s-svg-bg1 t4s-obj-eff' }}
                             {%- endif -%}
                           </{{ ARRhtml[0] }}>
                           <div class="t4s-bn-content t4s-pa t4s-bn-content-{{ bk_stts.bn_layout }}">
@@ -338,7 +338,7 @@
                           assign enable_pr_size = settings.enable_pr_size
                           assign pr_size_pos = settings.pr_size_pos
                           assign show_size_type = settings.show_size_type
-                          assign size_ck = settings.size_ck | append: ', size,sizes,Größe' 
+                          assign size_ck = settings.size_ck | append: ', size,sizes,Größe'
                           assign get_size = size_ck | downcase | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
 
                           assign enable_pr_color = settings.enable_pr_color
@@ -351,7 +351,7 @@
                           assign image_ratio = bk_stts.image_ratio
                           if image_ratio == "ratioadapt"
                             assign imgatt = ''
-                           else 
+                           else
                             assign imgatt = 'data-'
                           endif
                           assign collection = collections[bk_stts.collection]
@@ -371,10 +371,10 @@
                             assign arrow_icon = 2
                           endif
                        -%}
-                        {%- paginate collection.products by limit -%} 
+                        {%- paginate collection.products by limit -%}
                         <div class="t4s-flickity-slider t4s_box_pr_slider t4s-products t4s-text-{{ bk_stts.content_align }} t4s_{{ image_ratio }} t4s_position_{{ bk_stts.image_position }} t4s_{{ bk_stts.image_size }} t4s-slider-btn-cl-{{ bk_stts.btn_cl }}{% if bk_stts.nav_btn %} t4s-slider-btn-style-{{ bk_stts.btn_owl }} t4s-slider-btn-{{ bk_stts.btn_shape }} t4s-slider-btn-{{ bk_stts.btn_size }} t4s-slider-btn-vi-{{ bk_stts.btn_vi }} t4s-slider-btn-hidden-mobile-{{ bk_stts.btn_hidden_mobile }} {% endif %} {% if bk_stts.nav_dot == true %} t4s-dots-style-{{ bk_stts.dot_owl }} t4s-dots-cl-{{ bk_stts.dots_cl }} t4s-dots-round-{{ bk_stts.dots_round }} t4s-dots-hidden-mobile-{{ bk_stts.dots_hidden_mobile }} {% endif %} t4s-row t4s-row-cols-lg-1 t4s-row-cols-md-1 t4s-row-cols-1 flickityt4s t4s-gx-0 t4s-gy-0" data-flickityt4s-js='{"setPrevNextButtons": true,"arrowIcon": "{{ arrow_icon }}","imagesLoaded": 0,"adaptiveHeight": 0, "contain": 1, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": {{ bk_stts.loop }},"prevNextButtons": {{ bk_stts.nav_btn }},"percentPosition": 1,"pageDots": {{ bk_stts.nav_dot }}, "autoPlay" : {{ bk_stts.au_time | times: 1000 }}, "pauseAutoPlayOnHover" : {{ bk_stts.au_hover }} }' style="--btn-details-cl: {{ bk_stts.btn_details_cl }};--space-dots: {{ bk_stts.dots_space }}px;">
                             {%- if collection != blank -%}
-                              {%- liquid 
+                              {%- liquid
                                 case product_des
                                   when '1'
                                     render 'pr-grid-item1' for collection.products as product, product: product, isGrowaveWishlist: isGrowaveWishlist, show_img: show_img, show_vendor: show_vendor, use_link_vendor: use_link_vendor, rating_pos: rating_pos, list_color_pos: list_color_pos, list_size_pos: list_size_pos, enable_pr_color: enable_pr_color, show_cl_type: show_cl_type, get_color: get_color, enable_pr_size: enable_pr_size, pr_size_pos: pr_size_pos, get_size: get_size, show_size_type: show_size_type, price_varies_style: price_varies_style, app_review: app_review, enable_rating: enable_rating, imgatt: imgatt, show_list_btns: false, placeholder_img: placeholder_img, btn_details: btn_details
@@ -390,7 +390,7 @@
                               <div class="t4s-col-item t4s-product t4s-pr-grid t4s-pr-style{{ product_des }} t4s-pr-item t4s-pr-des-{{ product_des }}">
                                 <div class="t4s-product-wrapper" data-cacl-slide >
                                   <div class="t4s-product-inner">
-                                    <a class="t4s-d-block" data-cacl-slide href="/admin/products">{%- capture current -%}{%- cycle 1, 2, 3, 4, 5, 6 -%}{%- endcapture -%} 
+                                    <a class="t4s-d-block" data-cacl-slide href="/admin/products">{%- capture current -%}{%- cycle 1, 2, 3, 4, 5, 6 -%}{%- endcapture -%}
                                     {{ 'product-' | append: current | placeholder_svg_tag: 't4s-placeholder-svg' }}</a>
                                   </div>
                                   <div class="t4s-product-info">
@@ -402,7 +402,7 @@
                                 </div>
                               </div>
                             {%- endfor -%}
-                          {%- endif -%} 
+                          {%- endif -%}
                         </div>
                         {%- endpaginate -%}
                       {%- when 'collection_banner' -%}
@@ -414,19 +414,19 @@
                         assign collection_link = bk_stts.collection_link | default: collection.url
                         assign open_link = bk_stts.open_link
                      -%}
-                      <div class="t4s-collection-content t4s-custom-space t4s_ratioadapt t4s_position_8 t4s_cover t4s-eff-img-{{ bk_stts.img_effect }} t4s-text-center t4s-pr t4s-oh t4s-content-layout-{{ bk_stts.collection_link_layout }}" style="--mgb-box: {{ bk_stts.mgb_box }}px;--mgb-box-tb: {{ bk_stts.mgb_box_tb }}px;--mgb-box-mb: {{ bk_stts.mgb_box_mb }}px;"> 
+                      <div class="t4s-collection-content t4s-custom-space t4s_ratioadapt t4s_position_8 t4s_cover t4s-eff-img-{{ bk_stts.img_effect }} t4s-text-center t4s-pr t4s-oh t4s-content-layout-{{ bk_stts.collection_link_layout }}" style="--mgb-box: {{ bk_stts.mgb_box }}px;--mgb-box-tb: {{ bk_stts.mgb_box_tb }}px;--mgb-box-mb: {{ bk_stts.mgb_box_mb }}px;">
                         <div class="t4s-coll-img t4s-pr t4s-oh">
                           <a class="t4s_cat_item_link t4s-img-wrap t4s-d-block" href="{{ collection_link }}" target="{{ open_link }}">
                             <div class="t4s_ratio t4s-bg-11" style="--aspect-ratioapt: {{ image.aspect_ratio | default: 1.2 }};background: url({{ image | image_url: width: 1 }});" >
                               {%- if image != blank -%}
                                 <img class="lazyloadt4s t4s-lz--fadeIn t4s-obj-eff" data-src="{{ image | image_url: width: 1 }}" data-widths="[100,200,400,600,700,800,900,1000,1200,1400,1600]" data-optimumx="2" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt | escape }}">
                               {%- elsif collection != blank -%}
-                                {%- assign image = collection.image -%} 
+                                {%- assign image = collection.image -%}
                                 <img class="lazyloadt4s t4s-lz--fadeIn t4s-obj-eff" data-src="{{ image | image_url: width: 1 }}" data-widths="[100,200,400,600,700,800,900,1000,1200,1400,1600]" data-optimumx="2" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt | escape }}">
-                                <span class="lazyloadt4s-loader is-bg-img" style="background: url({{ image | image_url: width: 1 }});"></span>   
+                                <span class="lazyloadt4s-loader is-bg-img" style="background: url({{ image | image_url: width: 1 }});"></span>
                               {%- else -%}
                                 {%- capture current -%}{%- cycle 1, 2, 3, 4, 5, 6 -%}{%- endcapture -%}
-                                {{ 'collection-' | append: current | placeholder_svg_tag: 't4s-placeholder-svg t4s-obj-eff' }}  
+                                {{ 'collection-' | append: current | placeholder_svg_tag: 't4s-placeholder-svg t4s-obj-eff' }}
                               {%- endif -%}
                             </div>
                           </a>
@@ -438,13 +438,13 @@
                             </a>
                           </div>
                         {%- endif -%}
-                      </div>  
+                      </div>
                       {%- when 'accor_item' -%}
-                        {%- assign bk_stts = block.settings -%} 
+                        {%- assign bk_stts = block.settings -%}
                         {%- assign blockid = block.id -%}
                         {%- liquid
-                          assign title_cl_lightness       = bk_stts.title_cl | color_extract: 'lightness' 
-                          assign title_active_cl_lightness       = bk_stts.title_active_cl | color_extract: 'lightness' 
+                          assign title_cl_lightness       = bk_stts.title_cl | color_extract: 'lightness'
+                          assign title_active_cl_lightness       = bk_stts.title_active_cl | color_extract: 'lightness'
                           if title_cl_lightness < 85
                             assign title_cl2 = "#fff"
                           else
@@ -498,7 +498,7 @@
 {%- if newsletter -%}
   {{ 'newsletter.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
-{%- if countdown -%} 
+{%- if countdown -%}
   {{ 'countdown.css' | asset_url | stylesheet_tag }}
   <template id="countdown-{{ sid }}">
       <span class="countdown-days">
@@ -506,15 +506,15 @@
           <span class="cd_txtt4 cd-text">%!D:{{ "sections.countdown_text.day" | t }},{{ "sections.countdown_text.day_plural" | t }};</span>
       </span>
       <span class="countdown-hours">
-          <span class="cd_timet4 cd-number">%H</span> 
+          <span class="cd_timet4 cd-number">%H</span>
           <span class="cd_txtt4 cd-text">%!H:{{ "sections.countdown_text.hr" | t }},{{ "sections.countdown_text.hr_plural" | t }};</span>
       </span>
       <span class="countdown-min">
-          <span class="cd_timet4 cd-number">%M</span> 
+          <span class="cd_timet4 cd-number">%M</span>
           <span class="cd_txtt4 cd-text">%!M:{{ "sections.countdown_text.min" | t }},{{ "sections.countdown_text.min_plural" | t }};</span>
       </span>
       <span class="countdown-sec">
-          <span class="cd_timet4 cd-number">%S</span> 
+          <span class="cd_timet4 cd-number">%S</span>
           <span class="cd_txtt4 cd-text">%!S:{{ "sections.countdown_text.sec" | t }},{{ "sections.countdown_text.sec_plural" | t }};</span>
       </span>
   </template>
@@ -558,34 +558,34 @@
     "settings": [
       {
         "type": "header",
-        "content": "1.Content options" 
+        "content": "1.Content options"
       },
       {
         "type": "select",
         "id": "space_h_item",
         "options": [
           {
-              "value": "0", 
+              "value": "0",
               "label": "0"
           },
           {
-              "value": "2", 
+              "value": "2",
               "label": "2px"
           },
           {
-              "value": "4", 
+              "value": "4",
               "label": "4px"
           },
           {
-              "value": "6", 
+              "value": "6",
               "label": "6px"
           },
           {
-              "value": "8", 
+              "value": "8",
               "label": "8px"
           },
           {
-              "value": "10", 
+              "value": "10",
               "label": "10px"
           },
           {
@@ -613,27 +613,27 @@
         "id": "space_v_item",
         "options": [
           {
-              "value": "0", 
+              "value": "0",
               "label": "0"
           },
           {
-              "value": "2", 
+              "value": "2",
               "label": "2px"
           },
           {
-              "value": "4", 
+              "value": "4",
               "label": "4px"
           },
           {
-              "value": "6", 
+              "value": "6",
               "label": "6px"
           },
           {
-              "value": "8", 
+              "value": "8",
               "label": "8px"
           },
           {
-              "value": "10", 
+              "value": "10",
               "label": "10px"
           },
           {
@@ -661,27 +661,27 @@
         "id": "space_h_item_tb",
         "options": [
           {
-              "value": "0", 
+              "value": "0",
               "label": "0"
           },
           {
-              "value": "2", 
+              "value": "2",
               "label": "2px"
           },
           {
-              "value": "4", 
+              "value": "4",
               "label": "4px"
           },
           {
-              "value": "6", 
+              "value": "6",
               "label": "6px"
           },
           {
-              "value": "8", 
+              "value": "8",
               "label": "8px"
           },
           {
-              "value": "10", 
+              "value": "10",
               "label": "10px"
           },
           {
@@ -709,27 +709,27 @@
         "id": "space_v_item_tb",
         "options": [
           {
-              "value": "0", 
+              "value": "0",
               "label": "0"
           },
           {
-              "value": "2", 
+              "value": "2",
               "label": "2px"
           },
           {
-              "value": "4", 
+              "value": "4",
               "label": "4px"
           },
           {
-              "value": "6", 
+              "value": "6",
               "label": "6px"
           },
           {
-              "value": "8", 
+              "value": "8",
               "label": "8px"
           },
           {
-              "value": "10", 
+              "value": "10",
               "label": "10px"
           },
           {
@@ -757,27 +757,27 @@
         "id": "space_h_item_mb",
         "options": [
           {
-              "value": "0", 
+              "value": "0",
               "label": "0"
           },
           {
-              "value": "2", 
+              "value": "2",
               "label": "2px"
           },
           {
-              "value": "4", 
+              "value": "4",
               "label": "4px"
           },
           {
-              "value": "6", 
+              "value": "6",
               "label": "6px"
           },
           {
-              "value": "8", 
+              "value": "8",
               "label": "8px"
           },
           {
-              "value": "10", 
+              "value": "10",
               "label": "10px"
           },
           {
@@ -805,27 +805,27 @@
         "id": "space_v_item_mb",
         "options": [
           {
-              "value": "0", 
+              "value": "0",
               "label": "0"
           },
           {
-              "value": "2", 
+              "value": "2",
               "label": "2px"
           },
           {
-              "value": "4", 
+              "value": "4",
               "label": "4px"
           },
           {
-              "value": "6", 
+              "value": "6",
               "label": "6px"
           },
           {
-              "value": "8", 
+              "value": "8",
               "label": "8px"
           },
           {
-              "value": "10", 
+              "value": "10",
               "label": "10px"
           },
           {
@@ -873,7 +873,7 @@
       {
         "type": "image_picker",
         "id": "image_bg",
-        "label": "Background image" 
+        "label": "Background image"
       },
       {
           "type": "text",
@@ -889,7 +889,7 @@
           "label": "Padding",
           "info": "Padding top, padding right, padding bottom, padding left. If you do not use it please blank.",
           "placeholder": "50px,,50px,"
-      }, 
+      },
       {
         "type": "header",
         "content": "+ Design Tablet Options"
@@ -1322,7 +1322,7 @@
                     }
                 ]
             },
-            
+
             {
                 "type": "color",
                 "id": "text_cl",
@@ -1348,7 +1348,7 @@
                 "step": 1,
                 "default": 0,
                 "unit": "px",
-                "info": "Set '0' to use default"            
+                "info": "Set '0' to use default"
             },
             {
                 "type": "range",
@@ -1410,7 +1410,7 @@
                 "step": 1,
                 "default": 0,
                 "unit": "px",
-                "info": "Set '0' to use default"            
+                "info": "Set '0' to use default"
             },
             {
                 "type": "range",
@@ -1457,7 +1457,7 @@
                 "step": 1,
                 "default": 0,
                 "unit": "px",
-                "info": "Set '0' to use default"            
+                "info": "Set '0' to use default"
             },
             {
                 "type": "range",
@@ -1676,7 +1676,7 @@
             {
               "type": "select",
               "id": "icon_themes",
-              "label": "Select icon", 
+              "label": "Select icon",
               "info": "Only used for source  theme icon",
               "default": "t4s-flash",
               "options": [
@@ -1842,7 +1842,7 @@
               "type": "image_picker",
               "id": "image_icon",
               "label": "Choose image"
-            },            
+            },
             {
               "type": "text",
               "id": "icon",
@@ -1865,7 +1865,7 @@
                 "type": "textarea",
                 "id": "text",
                 "label": "Input text",
-                "default": "UNSEN FALL 2023 COLLECTION SPECIAL EDITION"
+                "default": "FALL 2023 COLLECTION SPECIAL EDITION"
             },
             {
                 "type": "range",
@@ -1901,7 +1901,7 @@
                   }
               ]
             },
-            
+
             {
               "type": "select",
               "id": "fontf",
@@ -1925,7 +1925,7 @@
                     "value": "3"
                 }
               ]
-            },  
+            },
             {
                 "type": "color",
                 "id": "text_cl",
@@ -1941,7 +1941,7 @@
               "step": 5,
               "unit": "px",
               "default": 200
-            },     
+            },
             {
                 "type": "range",
                 "id": "text_fs",
@@ -2268,7 +2268,7 @@
               {
                 "value": "light-overlay",
                 "label": "Light overlay"
-              } 
+              }
             ]
           },
           {
@@ -2488,7 +2488,7 @@
             "label": "Open link in",
             "default": "_self"
           },
-          
+
           {
             "type": "range",
             "id": "img_width",
@@ -2702,7 +2702,7 @@
               "unit": "s",
               "default": 18
           },
-          
+
           {
             "type": "select",
             "id": "box_txt_align",
@@ -2719,7 +2719,7 @@
                 }
             ]
           },
-          
+
           {
             "type": "select",
             "id": "fontf",
@@ -2743,7 +2743,7 @@
                   "value": "3"
               }
             ]
-          },  
+          },
           {
               "type": "color",
               "id": "text_cl",
@@ -2759,7 +2759,7 @@
             "step": 5,
             "unit": "px",
             "default": 145
-          },     
+          },
           {
               "type": "range",
               "id": "text_fs",
@@ -2793,7 +2793,7 @@
               "type": "header",
               "content": "+ Option on tablet"
           },
-          
+
           {
             "type": "range",
             "id": "box_text_width_tb",
@@ -2828,7 +2828,7 @@
               "type": "header",
               "content": "+ Option mobile"
           },
-          
+
           {
               "type": "checkbox",
               "id": "hidden_mobile_txt",
@@ -2938,7 +2938,7 @@
                     },
                     {
                         "label": "Font family #2",
-                        "value": "2" 
+                        "value": "2"
                     },
                     {
                         "label": "Font family #3",
@@ -2974,7 +2974,7 @@
                         "value": "bordered_top"
                     },
                     {
-                        "label": "Bordered bottom", 
+                        "label": "Bordered bottom",
                         "value": "bordered"
                     },
                     {
@@ -3413,7 +3413,7 @@
       },
       {
         "type": "countdown",
-        "name": "Countdown timer", 
+        "name": "Countdown timer",
         "limit": 4,
         "settings": [
           {
@@ -3633,7 +3633,7 @@
             "unit": "px",
             "default": 350
           },
-        
+
           {
             "type": "select",
             "id": "newl_size",
@@ -3677,7 +3677,7 @@
           {
             "type": "select",
             "id": "news_icon",
-            "label": "Select icon", 
+            "label": "Select icon",
             "info": "Only used for source icon",
             "default": "plane",
             "options": [
@@ -3891,7 +3891,7 @@
               { "value": "large", "label": "Extra large"}
            ]
           },
-        
+
           {
             "type": "header","content": "+ Pin 1 Settings"
           },
@@ -3925,7 +3925,7 @@
            "type": "color","id": "bg_cl_1","label": "Background color","default": "#65affa"
           },
           {
-            "type": "color","id": "cl_text_1","label": "Icon/Text color","default": "#fff" 
+            "type": "color","id": "cl_text_1","label": "Icon/Text color","default": "#fff"
           },
           {
            "type": "select","id": "type_1","label": "Pin type",
@@ -3971,7 +3971,7 @@
            "type": "color","id": "bg_cl_2","label": "Background color","default": "#65affa"
           },
           {
-            "type": "color","id": "cl_text_2","label": "Icon/Text color","default": "#fff" 
+            "type": "color","id": "cl_text_2","label": "Icon/Text color","default": "#fff"
           },
           {
            "type": "select","id": "type_2","label": "Pin type",
@@ -4017,7 +4017,7 @@
            "type": "color","id": "bg_cl_3","label": "Background color","default": "#65affa"
           },
           {
-            "type": "color","id": "cl_text_3","label": "Icon/Text color","default": "#fff" 
+            "type": "color","id": "cl_text_3","label": "Icon/Text color","default": "#fff"
           },
           {
            "type": "select","id": "type_3","label": "Pin type",
@@ -4063,7 +4063,7 @@
            "type": "color","id": "bg_cl_4","label": "Background color","default": "#65affa"
           },
           {
-            "type": "color","id": "cl_text_4","label": "Icon/Text color","default": "#fff" 
+            "type": "color","id": "cl_text_4","label": "Icon/Text color","default": "#fff"
           },
           {
            "type": "select","id": "type_4","label": "Pin type",
@@ -4109,7 +4109,7 @@
            "type": "color","id": "bg_cl_5","label": "Background color","default": "#65affa"
           },
           {
-            "type": "color","id": "cl_text_5","label": "Icon/Text color","default": "#fff" 
+            "type": "color","id": "cl_text_5","label": "Icon/Text color","default": "#fff"
           },
           {
            "type": "select","id": "type_5","label": "Pin type",
@@ -4326,11 +4326,11 @@
             "type": "select",
             "id": "bn_layout",
             "default": "bn_dark",
-            "label": "Banner content layout", 
+            "label": "Banner content layout",
             "options": [
               {
                 "value": "bn_dark",
-                "label": "Layout dark" 
+                "label": "Layout dark"
               },
               {
                 "value": "bn_light",
@@ -4343,7 +4343,7 @@
             "id": "padding_inner_bn",
             "label": "Padding content inner",
             "info": "Padding top, padding right, padding bottom, padding left. If you do not use it please blank.",
-            "placeholder": "30px,,30px," 
+            "placeholder": "30px,,30px,"
           },
           {
             "type": "text",
@@ -4386,7 +4386,7 @@
           {
           "id": "collection",
           "type": "collection",
-          "label": "Collection" 
+          "label": "Collection"
           },
           {
             "type": "select",

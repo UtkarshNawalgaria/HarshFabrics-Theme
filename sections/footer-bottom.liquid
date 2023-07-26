@@ -3,13 +3,13 @@
   <!-- sections/footer-bottom.liquid -->
   {{ 'section.css' | asset_url | stylesheet_tag }}
   {{ 'footer.css' | asset_url | stylesheet_tag }}
-  {%- liquid 
-    assign sid = section.id 
-    assign se_stts = section.settings 
+  {%- liquid
+    assign sid = section.id
+    assign se_stts = section.settings
     assign se_blocks = section.blocks
     assign stt_layout = se_stts.layout
-    assign stt_image_bg = se_stts.image_bg 
-    if stt_layout == 't4s-se-container' 
+    assign stt_image_bg = se_stts.image_bg
+    if stt_layout == 't4s-se-container'
       assign html_layout = '<div class="t4s-container">__</div></div>' | split: '__'
     elsif stt_layout == 't4s-container-wrap'
       assign html_layout = '<div class="t4s-container">__</div>' | split: '__'
@@ -18,48 +18,48 @@
     endif
     assign index = 0
     assign index2 = 1
-    assign arr_item = se_blocks | where:"type", 'bl_col'  
+    assign arr_item = se_blocks | where:"type", 'bl_col'
     assign collapse = se_stts.collapse
     assign no_image_parent = true
-  -%} 
+  -%}
   <div class="t4s-section-inner t4s_nt_se_{{ sid }} t4s_se_{{ sid }} {{ stt_layout }} t4s-footer-hidden-{{ se_stts.hidden_footer }} {%- if  se_stts.border_top == true -%} t4s-footer-has-border t4s-footer-border-{{ se_stts.border_pos }} {%- endif -%} {%- if stt_image_bg != blank and stt_layout != 't4s-se-container' -%}  t4s-has-imgbg lazyloadt4s {%- endif -%} "  {% if stt_image_bg != blank and stt_layout != 't4s-se-container' %} data-bgset="{{ stt_image_bg | image_url: width: 1 }}" data-sizes="auto"  data-optimumx="1.5" {% endif %}   {% render 'section_style', se_stts: se_stts %}>
       {{- html_layout[0] -}}
       {%- if stt_layout == 't4s-se-container' -%}<div class="t4s-container-inner {% if stt_image_bg != blank %} t4s-has-imgbg lazyloadt4s {% endif %} "  {% if stt_image_bg != blank %}  data-bgset="{{ stt_image_bg | image_url: width: 1 }}" data-sizes="auto"  data-optimumx="1.5" {% endif %} > {%- endif -%}
-      <div class="t4s-footer-wrap t4s-row{% if se_stts.space_between %} t4s-justify-content-lg-between{% endif %} is--footer-collapse-{{ collapse }} t4s-ver-center-{{ se_stts.align_vertical }} t4s-gx-lg-{{ se_stts.space_h_item }} t4s-heading-design{{ se_stts.heading_des }} t4s-gx-md-{{ se_stts.space_h_item_tb }} t4s-gx-{{ se_stts.space_h_item_mb }} t4s-gy-lg-{{ se_stts.space_v_item }} t4s-gy-md-{{ se_stts.space_v_item_tb }} t4s-gy-{{ se_stts.space_v_item_mb }}" style="--heading-fs:{{ se_stts.heading_fs }}px;--heading-fw:{{ se_stts.heading_fw }};--heading-lh:{{ se_stts.heading_lh }}px;--heading-ls:{{ se_stts.heading_ls }}px;--heading-cl:{{ se_stts.heading_cl }};--text-fs:{{ se_stts.text_fs }}px;--text-fw:{{ se_stts.text_fw }};--text-cl:{{ se_stts.text_cl }};--link-cl:{{ se_stts.link_cl }};--link-hover-cl:{{ se_stts.link_hover_cl }};--border-cl:{{ se_stts.border_cl }};--heading-mgb:{{ se_stts.mgb }}px;--heading-mgb-tb:{{ se_stts.mgb_tb }}px;--heading-mgb-mb:{{ se_stts.mgb_mb }}px;">   
+      <div class="t4s-footer-wrap t4s-row{% if se_stts.space_between %} t4s-justify-content-lg-between{% endif %} is--footer-collapse-{{ collapse }} t4s-ver-center-{{ se_stts.align_vertical }} t4s-gx-lg-{{ se_stts.space_h_item }} t4s-heading-design{{ se_stts.heading_des }} t4s-gx-md-{{ se_stts.space_h_item_tb }} t4s-gx-{{ se_stts.space_h_item_mb }} t4s-gy-lg-{{ se_stts.space_v_item }} t4s-gy-md-{{ se_stts.space_v_item_tb }} t4s-gy-{{ se_stts.space_v_item_mb }}" style="--heading-fs:{{ se_stts.heading_fs }}px;--heading-fw:{{ se_stts.heading_fw }};--heading-lh:{{ se_stts.heading_lh }}px;--heading-ls:{{ se_stts.heading_ls }}px;--heading-cl:{{ se_stts.heading_cl }};--text-fs:{{ se_stts.text_fs }}px;--text-fw:{{ se_stts.text_fw }};--text-cl:{{ se_stts.text_cl }};--link-cl:{{ se_stts.link_cl }};--link-hover-cl:{{ se_stts.link_hover_cl }};--border-cl:{{ se_stts.border_cl }};--heading-mgb:{{ se_stts.mgb }}px;--heading-mgb-tb:{{ se_stts.mgb_tb }}px;--heading-mgb-mb:{{ se_stts.mgb_mb }}px;">
         {%- for block in se_blocks %}
           {% assign block_type = block.type -%}
           {%- if block_type != 'bl_col' and no_image_parent %}{% continue -%}
-          {%- elsif block_type == 'bl_col' -%} 
+          {%- elsif block_type == 'bl_col' -%}
             {%- liquid
             if is_prev_block_image
               echo '</div></div></div>'
             endif
             assign no_image_parent = false
-            assign is_prev_block_image = true         
+            assign is_prev_block_image = true
             assign bk_stts = block.settings
             assign pd_item = bk_stts.padding_inner | remove: ' ' | split: ','
             assign pd_item_tb = bk_stts.padding_inner_tb | remove: ' ' | split: ','
             assign pd_item_mb = bk_stts.padding_inner_mb | remove: ' ' | split: ',' -%}
             <div class="t4s-custom-col t4s-col-item t4s-columns-border-{{ bk_stts.col_border }} t4s-col-lg-{{ bk_stts.col_dk }} t4s-col-md-{{ bk_stts.col_tb }} t4s-col-{{ bk_stts.col_mb }} bl-{{ block.id }}"{% if bk_stts.col_dk == 'custom' or bk_stts.col_tb == 'custom' %} style="--t4s-cus-col-lg:{{ bk_stts.col_dk_w | remove: ' ' }}%;--t4s-cus-col-md:{{bk_stts.col_dk_w_tb | remove: ' ' }}%;"{% endif %}>
               <div class="t4s-col-inner {{ bk_stts.content_align }} {{ bk_stts.content_align_tb }} {{ bk_stts.content_align_mb }} {%- if bk_stts.bg_image != blank -%}  lazyloadt4s t4s-has-imgbg  {%- endif -%} "  {%- if bk_stts.bg_image != blank -%}  data-bgset="{{ bk_stts.bg_image | image_url: width: 1 }}" data-sizes="auto"  data-optimumx="1.5" {%- endif -%}  style="--pd-top: {{ pd_item[0] | default: 0 }};--pd-right: {{ pd_item[1] | default: 0 }};--pd-bottom: {{ pd_item[2] | default: 0 }};--pd-left: {{ pd_item[3] | default: 0 }};--pd-tb-top: {{ pd_item_tb[0] | default: 0 }};--pd-tb-right: {{ pd_item_tb[1] | default: 0 }};--pd-tb-bottom: {{ pd_item_tb[2] | default: 0 }};--pd-tb-left: {{ pd_item_tb[3] | default: 0 }};--pd-mb-top: {{ pd_item_mb[0] | default: 0 }};--pd-mb-right: {{ pd_item_mb[1] | default: 0 }};--pd-mb-bottom: {{ pd_item_mb[2] | default: 0 }};--pd-mb-left: {{ pd_item_mb[3] | default: 0 }};">
-                {% if bk_stts.col_heading != blank %}  
+                {% if bk_stts.col_heading != blank %}
                   <div class="t4s-footer-heading t4s-d-flex t4s-align-items-center t4s-d-md-block t4s-d-none">
                       <h3 class="t4s-col-heading t4s-fnt-fm-{{ se_stts.heading_fontf }}">{{ bk_stts.col_heading }}</h3>
                   </div>
-                {%- endif -%} 
-                {%- if bk_stts.col_heading_mobile != blank or bk_stts.col_heading != blank -%}   
+                {%- endif -%}
+                {%- if bk_stts.col_heading_mobile != blank or bk_stts.col_heading != blank -%}
                   <div data-footer-open class="t4s-footer-heading t4s-footer-heading-mobile t4s-d-flex t4s-align-items-center t4s-d-md-none">
-                    {% if bk_stts.col_heading_mobile != blank %}  
-                        <h3 class="t4s-col-heading t4s-fnt-fm-{{ se_stts.heading_fontf }}">{{ bk_stts.col_heading_mobile }}</h3> 
-                    {%- else -%}     
-                        <h3 class="t4s-col-heading t4s-fnt-fm-{{ se_stts.heading_fontf }}">{{ bk_stts.col_heading }}</h3> 
-                    {%- endif -%}     
+                    {% if bk_stts.col_heading_mobile != blank %}
+                        <h3 class="t4s-col-heading t4s-fnt-fm-{{ se_stts.heading_fontf }}">{{ bk_stts.col_heading_mobile }}</h3>
+                    {%- else -%}
+                        <h3 class="t4s-col-heading t4s-fnt-fm-{{ se_stts.heading_fontf }}">{{ bk_stts.col_heading }}</h3>
+                    {%- endif -%}
                         <span class="t4s-footer-collapse-icon"></span>
                   </div>
-                {%- endif -%} 
+                {%- endif -%}
                 <div {% if bk_stts.col_heading != blank or bk_stts.col_heading_mobile != blank %}data-footer-content{% endif %} class="t4s-footer-content">
-                    {%- if bk_stts.menu !=blank -%} 
-                      <div class="t4s-footer-menu t4s-menu-style-{{ bk_stts.menu_style | default:"default" }}" style="--space-item: {{ bk_stts.space_item }}px;--space-item-tb: {{ bk_stts.space_item_tb }}px;--space-item-mb: {{ bk_stts.space_item_mb }}px;--mgb: {{ bk_stts.mgb }}px;--mgb-tb: {{ bk_stts.mgb_tb }}px;--mgb-mb: {{ bk_stts.mgb_mb }}px;"> 
+                    {%- if bk_stts.menu !=blank -%}
+                      <div class="t4s-footer-menu t4s-menu-style-{{ bk_stts.menu_style | default:"default" }}" style="--space-item: {{ bk_stts.space_item }}px;--space-item-tb: {{ bk_stts.space_item_tb }}px;--space-item-mb: {{ bk_stts.space_item_mb }}px;--mgb: {{ bk_stts.mgb }}px;--mgb-tb: {{ bk_stts.mgb_tb }}px;--mgb-mb: {{ bk_stts.mgb_mb }}px;">
                         <ul class="t4s-footer-linklist">
                           {%- for link in bk_stts.menu.links -%}
                           <li>
@@ -67,16 +67,16 @@
                               {%- render 'title_menu2',title: link.title -%}
                               </a>
                           </li>
-                          {%- endfor -%} 
+                          {%- endfor -%}
                         </ul>
-                      </div> 
-                    {%- endif -%}   
+                      </div>
+                    {%- endif -%}
           {%- else -%}
             {%- liquid
             assign next_block = se_blocks[forloop.index]
-            assign is_prev_block_image = false 
+            assign is_prev_block_image = false
             assign bk_stts = block.settings -%}
-            {%- render 'footer_content', block: block, bk_stts: bk_stts -%}  
+            {%- render 'footer_content', block: block, bk_stts: bk_stts -%}
             {%- if forloop.last or next_block and next_block.type == 'bl_col' -%}
                 </div></div></div>
             {%- endif -%}
@@ -94,7 +94,7 @@
   {%- if newsletter -%}
     {{ 'newsletter.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
-  {%- if countdown -%} 
+  {%- if countdown -%}
     {{ 'countdown.css' | asset_url | stylesheet_tag }}
     <template id="countdown-{{ sid }}">
         <span class="countdown-days">
@@ -102,15 +102,15 @@
             <span class="cd_txtt4 cd-text">%!D:{{ "sections.countdown_text.day" | t }},{{ "sections.countdown_text.day_plural" | t }};</span>
         </span>
         <span class="countdown-hours">
-            <span class="cd_timet4 cd-number">%H</span> 
+            <span class="cd_timet4 cd-number">%H</span>
             <span class="cd_txtt4 cd-text">%!H:{{ "sections.countdown_text.hr" | t }},{{ "sections.countdown_text.hr_plural" | t }};</span>
         </span>
         <span class="countdown-min">
-            <span class="cd_timet4 cd-number">%M</span> 
+            <span class="cd_timet4 cd-number">%M</span>
             <span class="cd_txtt4 cd-text">%!M:{{ "sections.countdown_text.min" | t }},{{ "sections.countdown_text.min_plural" | t }};</span>
         </span>
         <span class="countdown-sec">
-            <span class="cd_timet4 cd-number">%S</span> 
+            <span class="cd_timet4 cd-number">%S</span>
             <span class="cd_txtt4 cd-text">%!S:{{ "sections.countdown_text.sec" | t }},{{ "sections.countdown_text.sec_plural" | t }};</span>
         </span>
     </template>
@@ -175,27 +175,27 @@
       "id": "space_h_item",
       "options": [
         {
-            "value": "0", 
+            "value": "0",
             "label": "0"
         },
         {
-            "value": "2", 
+            "value": "2",
             "label": "2px"
         },
         {
-            "value": "4", 
+            "value": "4",
             "label": "4px"
         },
         {
-            "value": "6", 
+            "value": "6",
             "label": "6px"
         },
         {
-            "value": "8", 
+            "value": "8",
             "label": "8px"
         },
         {
-            "value": "10", 
+            "value": "10",
             "label": "10px"
         },
           {
@@ -223,27 +223,27 @@
       "id": "space_v_item",
       "options": [
         {
-            "value": "0", 
+            "value": "0",
             "label": "0"
         },
         {
-            "value": "2", 
+            "value": "2",
             "label": "2px"
         },
         {
-            "value": "4", 
+            "value": "4",
             "label": "4px"
         },
         {
-            "value": "5", 
+            "value": "5",
             "label": "5px"
         },
         {
-            "value": "8", 
+            "value": "8",
             "label": "8px"
         },
         {
-            "value": "10", 
+            "value": "10",
             "label": "10px"
         },
           {
@@ -271,27 +271,27 @@
       "id": "space_h_item_tb",
       "options": [
         {
-            "value": "0", 
+            "value": "0",
             "label": "0"
         },
         {
-            "value": "2", 
+            "value": "2",
             "label": "2px"
         },
         {
-            "value": "4", 
+            "value": "4",
             "label": "4px"
         },
         {
-            "value": "6", 
+            "value": "6",
             "label": "6px"
         },
         {
-            "value": "8", 
+            "value": "8",
             "label": "8px"
         },
         {
-            "value": "10", 
+            "value": "10",
             "label": "10px"
         },
           {
@@ -319,27 +319,27 @@
       "id": "space_v_item_tb",
       "options": [
         {
-            "value": "0", 
+            "value": "0",
             "label": "0"
         },
         {
-            "value": "2", 
+            "value": "2",
             "label": "2px"
         },
         {
-            "value": "4", 
+            "value": "4",
             "label": "4px"
         },
         {
-            "value": "5", 
+            "value": "5",
             "label": "5px"
         },
         {
-            "value": "8", 
+            "value": "8",
             "label": "8px"
         },
         {
-            "value": "10", 
+            "value": "10",
             "label": "10px"
         },
           {
@@ -367,27 +367,27 @@
       "id": "space_h_item_mb",
       "options": [
         {
-            "value": "0", 
+            "value": "0",
             "label": "0"
         },
         {
-            "value": "2", 
+            "value": "2",
             "label": "2px"
         },
         {
-            "value": "4", 
+            "value": "4",
             "label": "4px"
         },
         {
-            "value": "6", 
+            "value": "6",
             "label": "6px"
         },
         {
-            "value": "8", 
+            "value": "8",
             "label": "8px"
         },
         {
-            "value": "10", 
+            "value": "10",
             "label": "10px"
         },
           {
@@ -415,27 +415,27 @@
       "id": "space_v_item_mb",
       "options": [
         {
-            "value": "0", 
+            "value": "0",
             "label": "0"
         },
         {
-            "value": "2", 
+            "value": "2",
             "label": "2px"
         },
         {
-            "value": "4", 
+            "value": "4",
             "label": "4px"
         },
         {
-            "value": "5", 
+            "value": "5",
             "label": "5px"
         },
         {
-            "value": "8", 
+            "value": "8",
             "label": "8px"
         },
         {
-            "value": "10", 
+            "value": "10",
             "label": "10px"
         },
           {
@@ -528,7 +528,7 @@
         "step": 1,
         "default": 22,
         "unit": "px",
-        "info": "Set '0' to use default"            
+        "info": "Set '0' to use default"
     },
     {
         "type": "range",
@@ -639,12 +639,12 @@
     {
       "type": "color",
       "id": "cl_bg",
-      "label": "Background" 
+      "label": "Background"
     },
     {
       "type": "color_background",
       "id": "cl_bg_gradient",
-      "label": "Background gradient"  
+      "label": "Background gradient"
     },
     {
       "type": "image_picker",
@@ -736,7 +736,7 @@
         },
         {
           "type": "range",
-          "id": "space_item", 
+          "id": "space_item",
           "label": "Space between menu items (Desktop)",
           "unit": "px",
           "min": 0,
@@ -746,7 +746,7 @@
         },
         {
           "type": "range",
-          "id": "space_item_tb", 
+          "id": "space_item_tb",
           "label": "Space between menu items (Tablet)",
           "unit": "px",
           "min": 0,
@@ -756,7 +756,7 @@
         },
         {
           "type": "range",
-          "id": "space_item_mb", 
+          "id": "space_item_mb",
           "label": "Space between menu items (Mobile)",
           "unit": "px",
           "min": 0,
@@ -1014,7 +1014,7 @@
           "id": "padding_inner",
           "label": "Padding inner",
           "info": "Padding top, padding right, padding bottom, padding left. If you do not use it please blank.",
-          "placeholder": "30px,,30px," 
+          "placeholder": "30px,,30px,"
         },
         {
           "type": "header",
@@ -1081,7 +1081,7 @@
           "id": "padding_inner_mb",
           "label": "Padding inner",
           "placeholder": "30px,,30px,"
-        } 
+        }
       ]
     },
     {
@@ -1161,7 +1161,7 @@
                     }
                 ]
             },
-            
+
             {
                 "type": "color",
                 "id": "text_cl",
@@ -1187,7 +1187,7 @@
                 "step": 1,
                 "default": 0,
                 "unit": "px",
-                "info": "Set '0' to use default"            
+                "info": "Set '0' to use default"
             },
             {
                 "type": "range",
@@ -1249,7 +1249,7 @@
                 "step": 1,
                 "default": 0,
                 "unit": "px",
-                "info": "Set '0' to use default"            
+                "info": "Set '0' to use default"
             },
             {
                 "type": "range",
@@ -1297,7 +1297,7 @@
                 "step": 1,
                 "default": 0,
                 "unit": "px",
-                "info": "Set '0' to use default"            
+                "info": "Set '0' to use default"
             },
             {
                 "type": "range",
@@ -1508,7 +1508,7 @@
           {
             "type": "select",
             "id": "news_icon",
-            "label": "Select icon", 
+            "label": "Select icon",
             "info": "Only used for source icon",
             "default": "plane",
             "options": [
@@ -1636,7 +1636,7 @@
               "id": "mgb_tb",
               "label": "Margin bottom on tablet(Unit: px)",
               "default": 20
-          }, 
+          },
           {
               "type": "paragraph",
               "content": "————————————————"
@@ -1720,7 +1720,7 @@
       "settings": [
         {
             "type": "link_list",
-            "id": "menu", 
+            "id": "menu",
             "label": "Menu"
         },
         {
@@ -1736,7 +1736,7 @@
         },
         {
           "type": "range",
-          "id": "space_item", 
+          "id": "space_item",
           "label": "Space between menu items (Desktop)",
           "unit": "px",
           "min": 0,
@@ -1746,7 +1746,7 @@
         },
         {
           "type": "range",
-          "id": "space_item_tb", 
+          "id": "space_item_tb",
           "label": "Space between menu items (Tablet)",
           "unit": "px",
           "min": 0,
@@ -1756,7 +1756,7 @@
         },
         {
           "type": "range",
-          "id": "space_item_mb", 
+          "id": "space_item_mb",
           "label": "Space between menu items (Mobile)",
           "unit": "px",
           "min": 0,
@@ -1787,7 +1787,7 @@
       "settings": [
         {
             "type": "text",
-            "id": "title", 
+            "id": "title",
             "label": "Title"
         },
         {
@@ -1830,7 +1830,7 @@
         },
         {
           "type": "range",
-          "id": "bd_radius", 
+          "id": "bd_radius",
           "label": "Border radius",
           "info": "Not work when socials style is \"Simple\"",
           "unit": "px",
@@ -1867,27 +1867,27 @@
           "id": "space_h_item",
           "options": [
             {
-                "value": "0", 
+                "value": "0",
                 "label": "0"
             },
             {
-                "value": "2", 
+                "value": "2",
                 "label": "2px"
             },
             {
-                "value": "4", 
+                "value": "4",
                 "label": "4px"
             },
             {
-                "value": "5", 
+                "value": "5",
                 "label": "5px"
             },
             {
-                "value": "8", 
+                "value": "8",
                 "label": "8px"
             },
             {
-                "value": "10", 
+                "value": "10",
                 "label": "10px"
             },
           {
@@ -1919,27 +1919,27 @@
           "id": "space_v_item",
           "options": [
             {
-                "value": "0", 
+                "value": "0",
                 "label": "0"
             },
             {
-                "value": "2", 
+                "value": "2",
                 "label": "2px"
             },
             {
-                "value": "4", 
+                "value": "4",
                 "label": "4px"
             },
             {
-                "value": "5", 
+                "value": "5",
                 "label": "5px"
             },
             {
-                "value": "8", 
+                "value": "8",
                 "label": "8px"
             },
             {
-                "value": "10", 
+                "value": "10",
                 "label": "10px"
             },
           {
@@ -1967,31 +1967,31 @@
           "id": "space_h_item_mb",
           "options": [
             {
-                "value": "0", 
+                "value": "0",
                 "label": "0"
             },
             {
-                "value": "2", 
+                "value": "2",
                 "label": "2px"
             },
             {
-                "value": "4", 
+                "value": "4",
                 "label": "4px"
             },
             {
-                "value": "5", 
+                "value": "5",
                 "label": "5px"
             },
             {
-                "value": "6", 
+                "value": "6",
                 "label": "6px"
             },
             {
-                "value": "8", 
+                "value": "8",
                 "label": "8px"
             },
             {
-                "value": "10", 
+                "value": "10",
                 "label": "10px"
             },
           {
@@ -2019,31 +2019,31 @@
           "id": "space_v_item_mb",
           "options": [
             {
-                "value": "0", 
+                "value": "0",
                 "label": "0"
             },
             {
-                "value": "2", 
+                "value": "2",
                 "label": "2px"
             },
             {
-                "value": "4", 
+                "value": "4",
                 "label": "4px"
             },
             {
-                "value": "5", 
+                "value": "5",
                 "label": "5px"
             },
             {
-                "value": "6", 
+                "value": "6",
                 "label": "6px"
             },
             {
-                "value": "8", 
+                "value": "8",
                 "label": "8px"
             },
             {
-                "value": "10", 
+                "value": "10",
                 "label": "10px"
             },
           {
@@ -2092,7 +2092,7 @@
             "id": "text",
             "label": "Copyrights",
             "info": "Place here text you want to see in the copyrights area.",
-            "default": "© [year] <span class=\"t4s-csecondary\">Unsen<\/span> | All rights reserved."
+            "default": "© [year] <span class=\"t4s-csecondary\">Harsh Fabrics<\/span> | All rights reserved."
           },
           {
             "type": "number",
