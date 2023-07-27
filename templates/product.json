@@ -42,7 +42,7 @@
             "tax_ship": false,
             "size_price_pr": 20,
             "fw_price_pr": 400,
-            "primary_price_color": "#000",
+            "primary_price_color": "#000000",
             "secondary_price_color": "#868686",
             "price_sale": "#fa0000"
           }
@@ -101,7 +101,7 @@
             "button_effect": "fade",
             "wishlist_color": "#000000",
             "wishlist_color_hover": "#0ec1ae",
-            "wishlist_color_active": "#E81E1E",
+            "wishlist_color_active": "#e81e1e",
             "compare_color": "#000000",
             "compare_color_hover": "#0ec1ae",
             "show_dynamic_checkout": false,
@@ -165,17 +165,23 @@
             "title": "Description"
           }
         },
-        "ff4e4ed9-2087-42f7-8182-94e5a5181c84": {
-          "type": "tab_add",
-          "settings": {
-            "title": "Additional Information"
-          }
-        },
         "3090d62a-b7a8-4f60-9743-2d26b84a78f3": {
           "type": "tab_rivui",
           "settings": {
             "title": "Reviews for \"[pr_title]\"",
             "review_liquid": ""
+          }
+        },
+        "a3a553b9-699d-4f84-8f77-8d6b8b2bea24": {
+          "type": "live_view",
+          "settings": {
+            "icon": "default",
+            "icon_name": "las la-eye",
+            "ani": "none",
+            "min": 13,
+            "max": 50,
+            "time": 2,
+            "text": "[count] People are viewing this right now"
           }
         }
       },
@@ -191,8 +197,8 @@
         "63217937-b18c-4e9f-b8c9-eb0b670c14fc",
         "6927e5dd-04a4-4db6-a60c-76fab4d0069a",
         "8cb75c19-2a0d-4fb8-9e65-526f24de623b",
-        "ff4e4ed9-2087-42f7-8182-94e5a5181c84",
-        "3090d62a-b7a8-4f60-9743-2d26b84a78f3"
+        "3090d62a-b7a8-4f60-9743-2d26b84a78f3",
+        "a3a553b9-699d-4f84-8f77-8d6b8b2bea24"
       ],
       "settings": {
         "pr_layout": "default",
@@ -315,67 +321,10 @@
             "mgb_tb": 50,
             "mgb_mb": 15
           }
-        },
-        "67689988-9945-4e23-8a5b-10f1dd3e4b39": {
-          "type": "recently",
-          "settings": {
-            "design_heading": "1",
-            "heading_center": true,
-            "title": "Recently viewed",
-            "description": "",
-            "tophead_mb": 30,
-            "tophead_mb_tb": 30,
-            "tophead_mb_mb": 25,
-            "product_des": "1",
-            "rating_pos": "1",
-            "list_color_pos": "1",
-            "list_size_pos": "1",
-            "show_vendor": false,
-            "use_cdt": false,
-            "limit": 8,
-            "sortby": "3",
-            "unavailable_prs": "show",
-            "image_ratio": "rationt",
-            "image_size": "cover",
-            "image_position": "8",
-            "content_align": "default",
-            "col_dk": "4",
-            "col_tb": "3",
-            "col_mb": "2",
-            "space_h_item": "30",
-            "space_v_item": "30",
-            "space_h_item_tb": "15",
-            "space_v_item_tb": "15",
-            "space_h_item_mb": "15",
-            "space_v_item_mb": "15",
-            "layout_des": "2",
-            "loop": true,
-            "au_time": 0,
-            "au_hover": true,
-            "nav_btn": false,
-            "btn_pos": "in",
-            "btn_distance": 15,
-            "btn_vi": "hover",
-            "btn_owl": "default",
-            "btn_shape": "none",
-            "btn_cl": "dark",
-            "btn_size": "small",
-            "btn_hidden_mobile": true,
-            "nav_dot": true,
-            "dot_owl": "elessi2",
-            "dots_cl": "dark",
-            "dots_round": true,
-            "dots_space": 15,
-            "dots_hidden_mobile": false,
-            "mgb": 35,
-            "mgb_tb": 50,
-            "mgb_mb": 15
-          }
         }
       },
       "block_order": [
-        "942d0ec4-5182-4818-a3d6-d06cbf2680a1",
-        "67689988-9945-4e23-8a5b-10f1dd3e4b39"
+        "942d0ec4-5182-4818-a3d6-d06cbf2680a1"
       ],
       "settings": {
         "enable_tab": true,
