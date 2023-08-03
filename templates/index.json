@@ -109,7 +109,7 @@
         "e1fdbb76-6bc0-4720-bee3-d5203fb3bfbf": {
           "type": "collection_item",
           "settings": {
-            "collection": "peach-kurtis"
+            "collection": "unstitched-suits"
           }
         },
         "a9f69685-0468-4190-97a4-489d4c50c969": {
@@ -141,14 +141,14 @@
         "tophead_mb_mb": 30,
         "heading_inline": false,
         "heading_width": "small",
-        "collection_des": "1",
+        "collection_des": "10",
         "show_first_product_image": true,
-        "title_fs": 16,
+        "title_fs": 20,
         "title_fw": 400,
-        "item_content_rd": 100,
+        "item_content_rd": 0,
         "item_cl": "",
-        "pri_cl": "#ffffff",
-        "second_cl": "#000000",
+        "pri_cl": "#8e0000",
+        "second_cl": "rgba(0,0,0,0)",
         "pri_hover_cl": "#000000",
         "second_hover_cl": "#ffffff",
         "badge_cl": "#ffffff",
@@ -169,8 +169,8 @@
         "open_link": "_self",
         "item_rd": 50,
         "img_effect": "zoom",
-        "b_effect": "border-run",
-        "image_ratio": "rationt",
+        "b_effect": "none",
+        "image_ratio": "ratio1_1",
         "image_size": "cover",
         "image_position": "8",
         "layout_des": "1",
@@ -873,8 +873,8 @@
       ],
       "settings": {
         "design_heading": "4",
-        "heading_center": false,
-        "top_heading": "Happy <br>[Customers]",
+        "heading_center": true,
+        "top_heading": "Our Happy Customers",
         "top_subheading": "",
         "tophead_mb": 60,
         "tophead_mb_tb": 30,
