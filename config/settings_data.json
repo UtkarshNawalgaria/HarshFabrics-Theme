@@ -16,13 +16,16 @@
     "heading_color": "#020617",
     "text_color": "#000000",
     "accent_color": "#8e0000",
-    "secondary_color": "#ffcbb8",
+    "secondary_color": "#8e0000",
     "border_color": "#e6e6e6",
     "price_primary": "#010101",
     "price_sale": "#8e0000",
     "link_color": "#020617",
     "link_color_hover": "#8e0000",
     "cl_lazyload": "#8e0000",
+    "sw_primary": "#8e0000",
+    "sw_secondary": "#010101",
+    "sw_border": "#868686",
     "btn_radius": 5,
     "other_radius": 5,
     "atc_ajax_enable": true,
@@ -31,8 +34,14 @@
     "enable_compe_popup": true,
     "badge_reverse_color": true,
     "label_sale_style": "2",
+    "within_cat": false,
+    "enable_quickview": true,
+    "enable_quickshop": false,
     "enable_rating": false,
+    "enable_atc": false,
     "show_qty": false,
+    "enable_pr_size": true,
+    "show_size_type": "2",
     "enable_pr_ellipsis": false,
     "free_ship_pr": "adilette-slide-sandal",
     "gift_wrap_pr": "gift-wrap",
@@ -45,11 +54,11 @@
     "colors_css": true,
     "global_css": ".t4s-tabs-inline .t4s-tabs-head {    align-items: flex-end;}",
     "share_facebook": true,
-    "social_facebook_link": "https:\/\/facebook.com\/shopify",
-    "social_twitter_link": "https:\/\/twitter.com\/shopify",
-    "social_instagram_link": "https:\/\/instagram.com\/shopify",
-    "social_dribbble_link": "https:\/\/dribbble.com\/shopify",
-    "social_pinterest_link": "https:\/\/pinterest.com\/shopify",
+    "social_facebook_link": "https:\/\/www.facebook.com\/harsshfabricss\/",
+    "social_twitter_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/harsshfabricss",
+    "social_dribbble_link": "",
+    "social_pinterest_link": "",
     "social_youtube_link": "",
     "favicon": "shopify:\/\/shop_images\/z3594756212370_c53fe46b351a211cca86ae67b01d3595.jpg",
     "custom_css": true,
@@ -92,7 +101,7 @@
           "cl": "#ffffff",
           "bg": "#8e0000",
           "bg_op": 100,
-          "close": "1",
+          "close": "0",
           "cl_btn": "#ffffff",
           "version": "1",
           "date": 0,
@@ -153,11 +162,34 @@
       "header-inline": {
         "type": "header-inline",
         "blocks": {
-          "header-inline-0": {
+          "70811116-77e4-478a-bdb3-8fbf6a3cf48b": {
             "type": "mega",
             "settings": {
-              "title": "DEMO",
-              "url": "",
+              "title": "KURTI & KURTAS",
+              "url": "shopify:\/\/collections\/kurtis",
+              "open_link": "_self",
+              "icon": "",
+              "cus_cl": false,
+              "cl": "#ff3a3a",
+              "lb": "",
+              "lb_cl": "#ff3a3a",
+              "use_sub_heading": false,
+              "mg_sub_hd": "SUB HEADING",
+              "pos_sub": "bottom",
+              "wid": "full",
+              "cus_wid": 1200,
+              "id": 1,
+              "enable_packery": false,
+              "r_s_h_item": "30",
+              "r_s_v_item": "0",
+              "padding_inner_bn": "30px,30px,50px,30px"
+            }
+          },
+          "8808f705-af46-4a4a-8897-a275ba905baf": {
+            "type": "mega",
+            "settings": {
+              "title": "UNSTITCHED SUITS",
+              "url": "shopify:\/\/collections\/unstitched-suits",
               "open_link": "_self",
               "icon": "",
               "cus_cl": false,
@@ -169,151 +201,20 @@
               "pos_sub": "bottom",
               "wid": "full",
               "cus_wid": 1200,
-              "id": 1,
-              "enable_packery": true,
-              "r_s_h_item": "30",
-              "r_s_v_item": "30",
-              "padding_inner_bn": "30px,30px,30px,30px"
-            }
-          },
-          "header-inline-1": {
-            "type": "mega",
-            "settings": {
-              "title": "FEATURES",
-              "url": "",
-              "open_link": "_self",
-              "icon": "",
-              "cus_cl": false,
-              "cl": "#34c134",
-              "lb": "New",
-              "lb_cl": "#34c134",
-              "use_sub_heading": false,
-              "mg_sub_hd": "SUB HEADING",
-              "pos_sub": "bottom",
-              "wid": "cus",
-              "cus_wid": 860,
               "id": 2,
-              "enable_packery": true,
+              "enable_packery": false,
               "r_s_h_item": "30",
               "r_s_v_item": "30",
               "padding_inner_bn": "30px,30px,30px,30px"
-            }
-          },
-          "70811116-77e4-478a-bdb3-8fbf6a3cf48b": {
-            "type": "mega",
-            "settings": {
-              "title": "SHOP",
-              "url": "shopify:\/\/collections",
-              "open_link": "_self",
-              "icon": "",
-              "cus_cl": false,
-              "cl": "#ff3a3a",
-              "lb": "Hot",
-              "lb_cl": "#ff3a3a",
-              "use_sub_heading": false,
-              "mg_sub_hd": "SUB HEADING",
-              "pos_sub": "bottom",
-              "wid": "cus",
-              "cus_wid": 940,
-              "id": 3,
-              "enable_packery": true,
-              "r_s_h_item": "30",
-              "r_s_v_item": "0",
-              "padding_inner_bn": "30px,30px,30px,30px"
-            }
-          },
-          "8808f705-af46-4a4a-8897-a275ba905baf": {
-            "type": "mega",
-            "settings": {
-              "title": "PRODUCTS",
-              "url": "shopify:\/\/collections\/all",
-              "open_link": "_self",
-              "icon": "",
-              "cus_cl": false,
-              "cl": "#ec0101",
-              "lb": "",
-              "lb_cl": "#0ec1ae",
-              "use_sub_heading": false,
-              "mg_sub_hd": "SUB HEADING",
-              "pos_sub": "bottom",
-              "wid": "cus",
-              "cus_wid": 1000,
-              "id": 4,
-              "enable_packery": true,
-              "r_s_h_item": "30",
-              "r_s_v_item": "30",
-              "padding_inner_bn": "30px,30px,30px,30px"
-            }
-          },
-          "41c9412a-ae00-4a29-ae03-b7517a38619c": {
-            "type": "mega",
-            "settings": {
-              "title": "BLOG",
-              "url": "shopify:\/\/blogs\/news",
-              "open_link": "_self",
-              "icon": "",
-              "cus_cl": false,
-              "cl": "#ec0101",
-              "lb": "",
-              "lb_cl": "#00badb",
-              "use_sub_heading": false,
-              "mg_sub_hd": "SUB HEADING",
-              "pos_sub": "bottom",
-              "wid": "cus",
-              "cus_wid": 860,
-              "id": 5,
-              "enable_packery": true,
-              "r_s_h_item": "30",
-              "r_s_v_item": "30",
-              "padding_inner_bn": "30px,30px,30px,30px"
-            }
-          },
-          "2e8f7af3-e1ac-4c34-986d-749936fe04a8": {
-            "type": "drop",
-            "settings": {
-              "title": "LOOKBOOK",
-              "url": "",
-              "open_link": "_self",
-              "menu": "",
-              "icon": "",
-              "cus_cl": false,
-              "cl": "#ec0101",
-              "lb": "",
-              "lb_cl": "",
-              "lazy_mn": true,
-              "pos_sub": "bottom",
-              "cus_wid": 268
-            }
-          },
-          "33913b92-e16c-45fc-954a-9ca9a0010059": {
-            "type": "drop",
-            "settings": {
-              "title": "PAGES",
-              "url": "",
-              "open_link": "_self",
-              "menu": "",
-              "icon": "",
-              "cus_cl": false,
-              "cl": "#ec0101",
-              "lb": "",
-              "lb_cl": "",
-              "lazy_mn": true,
-              "pos_sub": "bottom",
-              "cus_wid": 268
             }
           }
         },
         "block_order": [
-          "header-inline-0",
-          "header-inline-1",
           "70811116-77e4-478a-bdb3-8fbf6a3cf48b",
-          "8808f705-af46-4a4a-8897-a275ba905baf",
-          "41c9412a-ae00-4a29-ae03-b7517a38619c",
-          "2e8f7af3-e1ac-4c34-986d-749936fe04a8",
-          "33913b92-e16c-45fc-954a-9ca9a0010059"
+          "8808f705-af46-4a4a-8897-a275ba905baf"
         ],
         "settings": {
-          "layout": "logo_left",
+          "layout": "logo_center",
           "full_header": false,
           "height": 80,
           "arrow": true,
@@ -337,9 +238,9 @@
           "account_des": "1",
           "cart_des": "1",
           "bg_hc": "#8e0000",
-          "cl_hc": "#fff",
+          "cl_hc": "#ffffff",
           "source": "1",
-          "custom_html": "<p style=\"display:flex;align-items:center;margin-bottom: 0; color:var(--h-text-color);\"><svg style=\"margin-right:5px;fill:currentColor\" enable-background=\"new 0 0 479.058 479.058\" height=\"20\" viewbox=\"0 0 479.058 479.058\" width=\"20\"><path d=\"m434.146 59.882h-389.234c-24.766 0-44.912 20.146-44.912 44.912v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159l-200.355 173.649-200.356-173.649c1.769-.736 3.704-1.159 5.738-1.159zm0 299.411h-389.234c-8.26 0-14.971-6.71-14.971-14.971v-251.648l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z\"><\/path><\/svg> <a class=\"t4s-ct\" href=\"mailto:unsen@domain.com\">Unsen@domain.com<\/a><\/p>",
+          "custom_html": "<p style=\"display:flex;align-items:center;margin-bottom: 0; color:var(--h-text-color);\"><svg style=\"margin-right:5px;fill:currentColor\" enable-background=\"new 0 0 479.058 479.058\" height=\"20\" viewbox=\"0 0 479.058 479.058\" width=\"20\"><path d=\"m434.146 59.882h-389.234c-24.766 0-44.912 20.146-44.912 44.912v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159l-200.355 173.649-200.356-173.649c1.769-.736 3.704-1.159 5.738-1.159zm0 299.411h-389.234c-8.26 0-14.971-6.71-14.971-14.971v-251.648l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z\"><\/path><\/svg> <a class=\"t4s-ct\" href=\"mailto:sales@harshfabrics.com\">sales@harshfabrics.com<\/a><\/p>",
           "sticky_header": true,
           "scroll_header": true,
           "bgnavst": "#ffffff",
@@ -368,310 +269,116 @@
       "mega-menu": {
         "type": "mega-menu",
         "blocks": {
-          "926fb2e5-732d-459f-a8a9-b0d7683bb010": {
+          "fe9fa8f2-acb2-4594-98ac-34b684023811": {
             "type": "mega",
             "settings": {
               "id": 1
             }
           },
-          "e8ffbc21-b02a-492c-b775-dee83c5d7965": {
-            "type": "html",
-            "settings": {
-              "html": "",
-              "page": "demo-short",
-              "col": "12"
-            }
-          },
-          "10c36dd8-9579-4b32-9578-0d5ffb00cf32": {
-            "type": "mega",
-            "settings": {
-              "id": 2
-            }
-          },
-          "2e9073e3-6266-4206-adc2-d1bf151b6709": {
+          "25f223b8-cde5-4081-81ad-68276f236170": {
             "type": "link",
             "settings": {
-              "tt_hd": "TOP FEATURES",
+              "tt_hd": "COLOR",
               "use_bd": true,
               "url": "",
               "open_link": "_self",
-              "menu": "",
+              "menu": "kurtis-by-color",
               "item_fsize": 13,
               "sp_bettewn_item": 20,
               "col": "3"
             }
           },
-          "96612a8b-551c-4d69-9dfc-efb2ff9a3ed0": {
+          "0bd3bcc6-4ce3-4af5-930c-4b3058da5eb0": {
             "type": "link",
             "settings": {
-              "tt_hd": "TOPBAR & CAMPBAR",
+              "tt_hd": "FABRIC",
               "use_bd": true,
               "url": "",
               "open_link": "_self",
-              "menu": "",
+              "menu": "kurtis-by-fabric",
               "item_fsize": 13,
               "sp_bettewn_item": 20,
               "col": "3"
             }
           },
-          "8e96a715-4063-4b78-9714-ebcd856bfe8c": {
-            "type": "link",
+          "0143e840-b5c5-4ae4-ac8f-e4576dac6766": {
+            "type": "pr",
             "settings": {
-              "tt_hd": "HEADER OPTION",
-              "use_bd": true,
-              "url": "",
-              "open_link": "_self",
-              "menu": "",
-              "item_fsize": 13,
-              "sp_bettewn_item": 20,
-              "col": "3"
-            }
-          },
-          "a4c54021-02c1-4a38-b8d0-49df69581a85": {
-            "type": "link",
-            "settings": {
-              "tt_hd": "PORTFOLIO",
-              "use_bd": true,
-              "url": "",
-              "open_link": "_self",
-              "menu": "",
-              "item_fsize": 13,
-              "sp_bettewn_item": 20,
-              "col": "3"
-            }
-          },
-          "fe9fa8f2-acb2-4594-98ac-34b684023811": {
-            "type": "mega",
-            "settings": {
-              "id": 3
-            }
-          },
-          "50c3af4b-e0cc-415e-a70d-03dc5cbb1616": {
-            "type": "link",
-            "settings": {
-              "tt_hd": "SHOP PAGES",
-              "use_bd": true,
-              "url": "",
-              "open_link": "_self",
-              "menu": "",
-              "item_fsize": 13,
-              "sp_bettewn_item": 20,
-              "col": "2"
-            }
-          },
-          "8fcf2d6d-0f71-4cd8-bb5c-bf323840bd1b": {
-            "type": "link",
-            "settings": {
-              "tt_hd": "FEATURES",
-              "use_bd": true,
-              "url": "",
-              "open_link": "_self",
-              "menu": "",
-              "item_fsize": 13,
-              "sp_bettewn_item": 20,
-              "col": "2"
-            }
-          },
-          "6765a368-76af-4fc3-97bf-1d4798edc6cd": {
-            "type": "cat_list",
-            "settings": {
-              "mg_heading": "HEADING",
-              "use_heading": false,
-              "collection_des": "1",
-              "collection_list": [
-                "men",
-                "women"
-              ],
-              "title_fs": 16,
-              "title_fw": 500,
-              "pri_cl": "#ffffff",
-              "second_cl": "#000000",
-              "pri_hover_cl": "#000000",
-              "second_hover_cl": "#ffffff",
-              "content_align": "center",
-              "content_pos": "2",
-              "space_bottom": 15,
-              "space_bottom_mb": 10,
-              "content_width": 140,
-              "content_height": 42,
-              "content_width_mb": 100,
-              "content_height_mb": 40,
-              "open_link": "_self",
-              "item_rd": 0,
-              "img_effect": "none",
-              "b_effect": "none",
-              "image_ratio": "ratioadapt",
+              "mg_heading": "BEST SELLERS",
+              "use_heading": true,
+              "collection": "kurtis",
+              "product_des": "3",
+              "rating_pos": "1",
+              "list_color_pos": "1",
+              "list_size_pos": "1",
+              "show_vendor": false,
+              "use_cdt": false,
+              "image_ratio": "rationt",
               "image_size": "cover",
               "image_position": "8",
-              "col_dk": "1",
-              "space_h_item": "0",
-              "space_v_item": "15",
-              "col": "3"
-            }
-          },
-          "4030ceda-2404-4a0f-9f66-f997d016db46": {
-            "type": "pr_loop",
-            "settings": {
-              "heading": "TOP RATE",
-              "use_bd": true,
-              "collection": "women",
-              "image_ratio": "ratio1_1",
-              "image_size": "cover",
-              "image_position": "8",
-              "limit": 4,
+              "content_align": "default",
+              "limit": 2,
+              "col_dk": "2",
+              "space_h_item": "30",
               "space_v_item": "30",
-              "col": "5"
+              "layout_des": "1",
+              "nav_btn": false,
+              "btn_vi": "hover",
+              "btn_pos": "in",
+              "btn_owl": "default",
+              "btn_shape": "none",
+              "btn_cl": "dark",
+              "btn_size": "small",
+              "btn_hidden_mobile": true,
+              "col": "6"
             }
           },
           "c7c18a38-8c7c-48b6-b072-54ae524dd26f": {
             "type": "mega",
             "settings": {
-              "id": 4
+              "id": 2
             }
           },
-          "94326d23-02b9-4d12-bcba-a20f975d317e": {
-            "type": "link",
+          "2357d6de-9bdf-46b6-acd3-3d1dfc1f4ccb": {
+            "type": "pr",
             "settings": {
-              "tt_hd": "PRODUCT LAYOUT",
-              "use_bd": true,
-              "url": "",
-              "open_link": "_self",
-              "menu": "",
-              "item_fsize": 13,
-              "sp_bettewn_item": 20,
-              "col": "3"
-            }
-          },
-          "34c5a608-2150-4270-87ef-7397b8cb67ff": {
-            "type": "link",
-            "settings": {
-              "tt_hd": "PRoduct Details",
-              "use_bd": true,
-              "url": "",
-              "open_link": "_self",
-              "menu": "",
-              "item_fsize": 13,
-              "sp_bettewn_item": 20,
-              "col": "3"
-            }
-          },
-          "62f2f1f9-7c03-4473-81bb-b5c4b4bf4513": {
-            "type": "link",
-            "settings": {
-              "tt_hd": "PRODUCT SWATCH",
-              "use_bd": true,
-              "url": "",
-              "open_link": "_self",
-              "menu": "",
-              "item_fsize": 13,
-              "sp_bettewn_item": 20,
-              "col": "3"
-            }
-          },
-          "a98310df-d436-4f3d-bf5b-e5e231777cb8": {
-            "type": "link",
-            "settings": {
-              "tt_hd": "PRODUCT FEATURES",
-              "use_bd": true,
-              "url": "",
-              "open_link": "_self",
-              "menu": "",
-              "item_fsize": 13,
-              "sp_bettewn_item": 20,
-              "col": "3"
-            }
-          },
-          "a9dd9f98-b46f-4e8d-bd6b-7ae3785ed104": {
-            "type": "mega",
-            "settings": {
-              "id": 5
-            }
-          },
-          "cd9b0746-4c44-4d25-b4cb-6ac8419f69fe": {
-            "type": "link",
-            "settings": {
-              "tt_hd": "Blog Style",
-              "use_bd": true,
-              "url": "",
-              "open_link": "_self",
-              "menu": "",
-              "item_fsize": 13,
-              "sp_bettewn_item": 20,
-              "col": "2"
-            }
-          },
-          "6662331f-5bad-4833-a231-333460f7b959": {
-            "type": "link",
-            "settings": {
-              "tt_hd": "SINGLE POST",
-              "use_bd": true,
-              "url": "",
-              "open_link": "_self",
-              "menu": "",
-              "item_fsize": 13,
-              "sp_bettewn_item": 20,
-              "col": "3"
-            }
-          },
-          "1a6057a6-dada-44ab-93d9-24afc4bca54f": {
-            "type": "blogs",
-            "settings": {
-              "blog": "fashions",
-              "show_border": true,
-              "post_des": "3",
-              "show_blog_title": "blog_tags",
-              "show_content": false,
-              "show_tags": false,
-              "show_author": true,
-              "show_comment": true,
-              "show_readmore": false,
-              "show_date": false,
-              "date": "%b %d",
-              "content_align": "start",
-              "limit": 8,
-              "img_effect": "none",
-              "b_effect": "none",
-              "image_ratio": "ratioadapt",
+              "mg_heading": "HEADING",
+              "use_heading": false,
+              "collection": "unstitched-suits",
+              "product_des": "1",
+              "rating_pos": "1",
+              "list_color_pos": "1",
+              "list_size_pos": "1",
+              "show_vendor": false,
+              "use_cdt": false,
+              "image_ratio": "rationt",
               "image_size": "cover",
               "image_position": "8",
-              "col_dk": "2",
+              "content_align": "default",
+              "limit": 4,
+              "col_dk": "4",
               "space_h_item": "30",
               "space_v_item": "30",
               "layout_des": "2",
-              "nav_btn": true,
-              "btn_vi": "always",
-              "btn_pos": "out",
+              "nav_btn": false,
+              "btn_vi": "hover",
+              "btn_pos": "in",
               "btn_owl": "default",
               "btn_shape": "none",
-              "btn_cl": "light",
+              "btn_cl": "dark",
               "btn_size": "small",
               "btn_hidden_mobile": true,
-              "col": "7"
+              "col": "12"
             }
           }
         },
         "block_order": [
-          "926fb2e5-732d-459f-a8a9-b0d7683bb010",
-          "e8ffbc21-b02a-492c-b775-dee83c5d7965",
-          "10c36dd8-9579-4b32-9578-0d5ffb00cf32",
-          "2e9073e3-6266-4206-adc2-d1bf151b6709",
-          "96612a8b-551c-4d69-9dfc-efb2ff9a3ed0",
-          "8e96a715-4063-4b78-9714-ebcd856bfe8c",
-          "a4c54021-02c1-4a38-b8d0-49df69581a85",
           "fe9fa8f2-acb2-4594-98ac-34b684023811",
-          "50c3af4b-e0cc-415e-a70d-03dc5cbb1616",
-          "8fcf2d6d-0f71-4cd8-bb5c-bf323840bd1b",
-          "6765a368-76af-4fc3-97bf-1d4798edc6cd",
-          "4030ceda-2404-4a0f-9f66-f997d016db46",
+          "25f223b8-cde5-4081-81ad-68276f236170",
+          "0bd3bcc6-4ce3-4af5-930c-4b3058da5eb0",
+          "0143e840-b5c5-4ae4-ac8f-e4576dac6766",
           "c7c18a38-8c7c-48b6-b072-54ae524dd26f",
-          "94326d23-02b9-4d12-bcba-a20f975d317e",
-          "34c5a608-2150-4270-87ef-7397b8cb67ff",
-          "62f2f1f9-7c03-4473-81bb-b5c4b4bf4513",
-          "a98310df-d436-4f3d-bf5b-e5e231777cb8",
-          "a9dd9f98-b46f-4e8d-bd6b-7ae3785ed104",
-          "cd9b0746-4c44-4d25-b4cb-6ac8419f69fe",
-          "6662331f-5bad-4833-a231-333460f7b959",
-          "1a6057a6-dada-44ab-93d9-24afc4bca54f"
+          "2357d6de-9bdf-46b6-acd3-3d1dfc1f4ccb"
         ],
         "settings": {
         }
@@ -706,7 +413,7 @@
           "0e72965a-1528-4f80-8b68-b6e685a77755": {
             "type": "custom_text",
             "settings": {
-              "text": "unsen.",
+              "text": "Harsh Fabrics",
               "remove_br_tag": false,
               "tag": "p",
               "fontf": "inherit",
@@ -732,7 +439,7 @@
           "26810dab-1544-424e-a34f-328e03ff656f": {
             "type": "custom_text",
             "settings": {
-              "text": "Unsen is an exciting contemporary brand\nwhich focuses on high-quality products graphics with a British style",
+              "text": "Harsh Fabrics is an exciting contemporary brand\nwhich focuses on high-quality products graphics with a British style",
               "remove_br_tag": false,
               "tag": "p",
               "fontf": "inherit",
@@ -1095,136 +802,6 @@
       },
       "mb_cat": {
         "type": "mb_cat",
-        "blocks": {
-          "f03a2313-84f9-4ce7-af4d-0a2ec38cb860": {
-            "type": "cat",
-            "settings": {
-              "cat": "acessories",
-              "title": "Women’s Clothing",
-              "url": "https:\/\/demo-unsen.myshopify.com\/collections\/acessories\/?preview_theme_id=134122471665",
-              "menu": "",
-              "lb": "",
-              "lb_cl": "#e91e63",
-              "icons_op": "2",
-              "icon": "las la-female"
-            }
-          },
-          "f4a35f80-4e7d-4014-adbc-7b2fd7858b92": {
-            "type": "cat",
-            "settings": {
-              "cat": "men",
-              "title": "Men’s Clothing",
-              "url": "https:\/\/demo-unsen.myshopify.com\/collections\/men\/?preview_theme_id=134122471665",
-              "menu": "",
-              "lb": "",
-              "lb_cl": "#e91e63",
-              "icons_op": "2",
-              "icon": "las la-male"
-            }
-          },
-          "a7417cbd-5494-47f5-939f-846413f93756": {
-            "type": "cat",
-            "settings": {
-              "cat": "watches",
-              "title": "Watches",
-              "url": "https:\/\/demo-unsen.myshopify.com\/collections\/watches\/?preview_theme_id=134122471665",
-              "menu": "",
-              "lb": "",
-              "lb_cl": "#e91e63",
-              "icons_op": "2",
-              "icon": "las la-clock"
-            }
-          },
-          "cc4f8bf3-b555-4ec8-abbf-0550baab0110": {
-            "type": "cat",
-            "settings": {
-              "cat": "accessories",
-              "title": "Accessories",
-              "url": "https:\/\/demo-unsen.myshopify.com\/collections\/acessories\/?preview_theme_id=134122471665",
-              "menu": "",
-              "lb": "",
-              "lb_cl": "#e91e63",
-              "icons_op": "2",
-              "icon": "las la-glasses"
-            }
-          },
-          "105ae66a-c868-49af-8eaa-f2da5085f0e3": {
-            "type": "cat",
-            "settings": {
-              "cat": "",
-              "title": "Electric",
-              "url": "https:\/\/demo-unsen.myshopify.com\/collections\/acessories\/preview_theme_id=134122471665",
-              "menu": "",
-              "lb": "",
-              "lb_cl": "#e91e63",
-              "icons_op": "2",
-              "icon": "las la-camera-retro"
-            }
-          },
-          "3de6db21-79e9-41b8-a318-a92371cda9fc": {
-            "type": "cat",
-            "settings": {
-              "cat": "",
-              "title": "Shoes",
-              "url": "https:\/\/demo-unsen.myshopify.com\/collections\/shoes\/?preview_theme_id=134122471665",
-              "menu": "",
-              "lb": "",
-              "lb_cl": "#e91e63",
-              "icons_op": "2",
-              "icon": "las la-shoe-prints"
-            }
-          },
-          "4bf23bfd-b1a6-480a-b5df-216c60615774": {
-            "type": "cat",
-            "settings": {
-              "cat": "jewellery",
-              "title": "Jewellery",
-              "url": "https:\/\/demo-unsen.myshopify.com\/collections\/jewelry\/?preview_theme_id=134122471665",
-              "menu": "",
-              "lb": "",
-              "lb_cl": "#e91e63",
-              "icons_op": "2",
-              "icon": "las la-gem"
-            }
-          },
-          "5161bece-1f47-47e4-b9c0-f96d1125cb7b": {
-            "type": "cat",
-            "settings": {
-              "cat": "",
-              "title": "T-Shirt",
-              "url": "https:\/\/demo-unsen.myshopify.com\/collections\/jewelry\/?preview_theme_id=134122471665",
-              "menu": "",
-              "lb": "",
-              "lb_cl": "#e91e63",
-              "icons_op": "2",
-              "icon": "las la-tshirt"
-            }
-          },
-          "fa40a3db-1d38-4603-811d-f00f40a9c4fb": {
-            "type": "cat",
-            "settings": {
-              "cat": "",
-              "title": "Bags",
-              "url": "https:\/\/demo-unsen.myshopify.com\/collections\/bags\/?preview_theme_id=134122471665",
-              "menu": "",
-              "lb": "",
-              "lb_cl": "#e91e63",
-              "icons_op": "2",
-              "icon": "las la-shopping-bag"
-            }
-          }
-        },
-        "block_order": [
-          "f03a2313-84f9-4ce7-af4d-0a2ec38cb860",
-          "f4a35f80-4e7d-4014-adbc-7b2fd7858b92",
-          "a7417cbd-5494-47f5-939f-846413f93756",
-          "cc4f8bf3-b555-4ec8-abbf-0550baab0110",
-          "105ae66a-c868-49af-8eaa-f2da5085f0e3",
-          "3de6db21-79e9-41b8-a318-a92371cda9fc",
-          "4bf23bfd-b1a6-480a-b5df-216c60615774",
-          "5161bece-1f47-47e4-b9c0-f96d1125cb7b",
-          "fa40a3db-1d38-4603-811d-f00f40a9c4fb"
-        ],
         "settings": {
           "title": ""
         }
@@ -1284,7 +861,7 @@
           "c7bc461d-6171-4edf-bd73-05879a52216f"
         ],
         "settings": {
-          "tabs_list": "best_seller, wishlist, visited, cart",
+          "tabs_list": "cart",
           "product_list": [
             "adilette-slide-sandal",
             "adilette-slide-sandal-colorful",
@@ -1494,18 +1071,6 @@
       "toolbar_mobile": {
         "type": "toolbar_mobile",
         "blocks": {
-          "363a442e-2da6-4d11-8264-daebc8ef1674": {
-            "type": "home",
-            "settings": {
-              "title": "Home"
-            }
-          },
-          "9c8f0417-348e-4388-9d59-c28103a48372": {
-            "type": "nav",
-            "settings": {
-              "title": "Menu"
-            }
-          },
           "c243ff5d-c00d-4af1-a110-d74a4cdb8a74": {
             "type": "shop",
             "settings": {
@@ -1533,8 +1098,6 @@
           }
         },
         "block_order": [
-          "363a442e-2da6-4d11-8264-daebc8ef1674",
-          "9c8f0417-348e-4388-9d59-c28103a48372",
           "c243ff5d-c00d-4af1-a110-d74a4cdb8a74",
           "ea5e77c0-b7d2-4249-8427-6f2432b3bf99",
           "d7e81cd1-b0f0-4abc-a857-30f2491a64d7",
@@ -1624,12 +1187,12 @@
               "compare_color": "#ffffff",
               "compare_color_hover": "#000000",
               "size_list_color": "#ffffff",
-              "size_list_color_info": "#000000",
-              "hidden_atc_mb": false,
-              "hidden_qv_mb": false,
+              "size_list_color_info": "#ffffff",
+              "hidden_atc_mb": true,
+              "hidden_qv_mb": true,
               "hidden_wishlist_mb": false,
-              "hidden_compare_mb": false,
-              "hidden_pr_colors": false,
+              "hidden_compare_mb": true,
+              "hidden_pr_colors": true,
               "hidden_pr_sizes": false,
               "hidden_pr_countdown": false
             }
@@ -1827,13 +1390,13 @@
           "e8707210-68be-4758-bc5b-1b31da65e12d"
         ],
         "settings": {
-          "txt_tr_pr": "none",
+          "txt_tr_pr": "capitalize",
           "fnt_df_pr": "1",
           "size_pr": 14,
           "fw_pr": 400,
           "lh_pr": 0,
           "ls_pr": 0,
-          "size_price_pr": 14,
+          "size_price_pr": 16,
           "fw_price_pr": 400,
           "space_img_content": 15,
           "space_elements": 5,
@@ -2257,7 +1820,7 @@
           "f6bb46c0-474a-43ea-a80b-708f057a4d51": {
             "type": "copyR",
             "settings": {
-              "text": "All Rights Reserved © [year] Unsen store"
+              "text": "All Rights Reserved © [year] Harsh Fabrics store"
             }
           },
           "ea426a95-5f84-4190-96f3-0d928d38f0fa": {
@@ -2505,7 +2068,7 @@
           "bg_hc": "#000000",
           "cl_hc": "#ffffff",
           "source": "2",
-          "txt": "<p style=\"display:flex;align-items:center;margin-bottom: 0; color:var(--h-text-color);\"><svg style=\"margin-right:5px;fill:currentColor\" enable-background=\"new 0 0 479.058 479.058\" height=\"20\" viewbox=\"0 0 479.058 479.058\" width=\"20\"><path d=\"m434.146 59.882h-389.234c-24.766 0-44.912 20.146-44.912 44.912v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159l-200.355 173.649-200.356-173.649c1.769-.736 3.704-1.159 5.738-1.159zm0 299.411h-389.234c-8.26 0-14.971-6.71-14.971-14.971v-251.648l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z\"><\/path><\/svg> <a class=\"t4s-ct\" href=\"mailto:unsen@domain.com\">Unsen@domain.com<\/a><\/p>",
+          "txt": "<p style=\"display:flex;align-items:center;margin-bottom: 0; color:var(--h-text-color);\"><svg style=\"margin-right:5px;fill:currentColor\" enable-background=\"new 0 0 479.058 479.058\" height=\"20\" viewbox=\"0 0 479.058 479.058\" width=\"20\"><path d=\"m434.146 59.882h-389.234c-24.766 0-44.912 20.146-44.912 44.912v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159l-200.355 173.649-200.356-173.649c1.769-.736 3.704-1.159 5.738-1.159zm0 299.411h-389.234c-8.26 0-14.971-6.71-14.971-14.971v-251.648l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z\"><\/path><\/svg> <a class=\"t4s-ct\" href=\"mailto:sales@harshfabrics.com\">sales@harshfabrics.com<\/a><\/p>",
           "sticky_header": true,
           "scroll_header": true,
           "bgnavst": "#ffffff",
@@ -3010,7 +2573,7 @@
           "fw_nav": 400,
           "ls_nav": 0,
           "sp_nav": 35,
-          "text": "<ul class=\"t4s-top-linklist\">\n<li>\n<a class=\"t4s-ct\" href=\"mailto:support@unsen.com\">\n<svg id=\"Capa_1\" enable-background=\"new 0 0 479.058 479.058\" height=\"512\" viewbox=\"0 0 479.058 479.058\" width=\"512\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"m434.146 59.882h-389.234c-24.766 0-44.912 20.146-44.912 44.912v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159l-200.355 173.649-200.356-173.649c1.769-.736 3.704-1.159 5.738-1.159zm0 299.411h-389.234c-8.26 0-14.971-6.71-14.971-14.971v-251.648l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z\"><\/path><\/svg>\nsupport@unsen.com<\/a>\n<\/li>\n<li>\n<a class=\"t4s-ct\" href=\"tel:%20+12025550184\">\n<svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" x=\"0px\" y=\"0px\" viewbox=\"0 0 511.999 511.999\" style=\"enable-background:new 0 0 511.999 511.999\" xml:space=\"preserve\"><path d=\"M498.827,377.633l-63.649-63.649c-17.548-17.547-46.102-17.547-63.649,0l-28.931,28.931\n\t\t\tc-13.294,13.294-34.926,13.29-48.215,0.005l-125.4-125.507c-13.325-13.325-13.327-34.892,0-48.219\n\t\t\tc4.66-4.66,18.041-18.041,28.931-28.931c17.471-17.47,17.715-45.935-0.017-63.665l-63.632-63.432\n\t\t\tC116.717-4.381,88.164-4.381,70.663,13.12C57.567,26.102,53.343,30.29,47.471,36.111c-63.28,63.279-63.28,166.242-0.003,229.519\n\t\t\tl198.692,198.796c63.428,63.429,166.088,63.434,229.521,0l23.146-23.145C516.375,423.733,516.375,395.181,498.827,377.633z\n\t\t\t M91.833,34.382c5.849-5.849,15.365-5.85,21.233,0.016l63.632,63.432c5.863,5.863,5.863,15.352,0,21.216l-10.609,10.608\n\t\t\tl-84.81-84.81L91.833,34.382z M267.38,443.213L68.687,244.415c-48.958-48.958-51.649-125.833-8.276-178.006l84.564,84.564\n\t\t\tc-22.22,25.189-21.294,63.572,2.787,87.653l125.396,125.501c0.001,0.001,0.003,0.003,0.004,0.004\n\t\t\tc24.055,24.056,62.436,25.042,87.656,2.792l84.566,84.566C393.377,494.787,316.675,492.508,267.38,443.213z M477.612,420.065\n\t\t\tl-10.609,10.609l-84.865-84.866l10.607-10.608c5.85-5.849,15.367-5.85,21.217,0l63.649,63.649\n\t\t\tC483.461,404.699,483.461,414.217,477.612,420.065z\"><\/path><\/svg> +1-202-555-0184<\/a>\n<\/li>\n<\/ul>",
+          "text": "<ul class=\"t4s-top-linklist\">\n<li>\n<a class=\"t4s-ct\" href=\"mailto:support@harshfabrics.com\">\n<svg id=\"Capa_1\" enable-background=\"new 0 0 479.058 479.058\" height=\"512\" viewbox=\"0 0 479.058 479.058\" width=\"512\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"m434.146 59.882h-389.234c-24.766 0-44.912 20.146-44.912 44.912v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159l-200.355 173.649-200.356-173.649c1.769-.736 3.704-1.159 5.738-1.159zm0 299.411h-389.234c-8.26 0-14.971-6.71-14.971-14.971v-251.648l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z\"><\/path><\/svg>\nsupport@harshfabrics.com<\/a>\n<\/li>\n<li>\n<a class=\"t4s-ct\" href=\"tel:%20+12025550184\">\n<svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" x=\"0px\" y=\"0px\" viewbox=\"0 0 511.999 511.999\" style=\"enable-background:new 0 0 511.999 511.999\" xml:space=\"preserve\"><path d=\"M498.827,377.633l-63.649-63.649c-17.548-17.547-46.102-17.547-63.649,0l-28.931,28.931\n\t\t\tc-13.294,13.294-34.926,13.29-48.215,0.005l-125.4-125.507c-13.325-13.325-13.327-34.892,0-48.219\n\t\t\tc4.66-4.66,18.041-18.041,28.931-28.931c17.471-17.47,17.715-45.935-0.017-63.665l-63.632-63.432\n\t\t\tC116.717-4.381,88.164-4.381,70.663,13.12C57.567,26.102,53.343,30.29,47.471,36.111c-63.28,63.279-63.28,166.242-0.003,229.519\n\t\t\tl198.692,198.796c63.428,63.429,166.088,63.434,229.521,0l23.146-23.145C516.375,423.733,516.375,395.181,498.827,377.633z\n\t\t\t M91.833,34.382c5.849-5.849,15.365-5.85,21.233,0.016l63.632,63.432c5.863,5.863,5.863,15.352,0,21.216l-10.609,10.608\n\t\t\tl-84.81-84.81L91.833,34.382z M267.38,443.213L68.687,244.415c-48.958-48.958-51.649-125.833-8.276-178.006l84.564,84.564\n\t\t\tc-22.22,25.189-21.294,63.572,2.787,87.653l125.396,125.501c0.001,0.001,0.003,0.003,0.004,0.004\n\t\t\tc24.055,24.056,62.436,25.042,87.656,2.792l84.566,84.566C393.377,494.787,316.675,492.508,267.38,443.213z M477.612,420.065\n\t\t\tl-10.609,10.609l-84.865-84.866l10.607-10.608c5.85-5.849,15.367-5.85,21.217,0l63.649,63.649\n\t\t\tC483.461,404.699,483.461,414.217,477.612,420.065z\"><\/path><\/svg> +1-202-555-0184<\/a>\n<\/li>\n<\/ul>",
           "shop_cat": false,
           "txt_cat": "Shop By Category",
           "pd": ",15px,,15px"

@@ -117,10 +117,6 @@
   background-color: var(--compare-bg-cl);
 }
 
-/* .t4s-product .t4s-pr-compare .t4s-svg-pr-icon svg{
-    transition: 0.3s ease 0s;
-} */
-
 .t4s-product .t4s-pr-quickview {
   color: var(--quickview-cl);
   background-color: var(--quickview-bg-cl);
