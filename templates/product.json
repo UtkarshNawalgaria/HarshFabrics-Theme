@@ -56,16 +56,6 @@
             "space_tb_mb": 10
           }
         },
-        "1a3a9220-2bb3-4ab1-a2cb-03d0d9bb32c6": {
-          "type": "description",
-          "settings": {
-            "des": "2",
-            "text": "<p>Cenean viverra rhoncus pede. Ut id nisl quis enim dignissim sagittis. Fusce ac felis sitpharetra condimentum...<\/p>",
-            "length": 30,
-            "readm": false,
-            "readm_txt": "Read more"
-          }
-        },
         "8efd84b3-4647-43eb-8040-d7451a522e7d": {
           "type": "size",
           "settings": {
@@ -90,20 +80,20 @@
             "enable_wishlist": true,
             "enable_compare": true,
             "btn_atc_full": true,
-            "pr_btn_round": 0,
+            "pr_btn_round": 3,
             "wis_cp_btn_round": 40,
             "ani": "t4s-ani-shake",
             "time": 6,
             "btn_txt": "3",
             "btn_icon": false,
             "button_style": "default",
-            "button_color": "dark",
+            "button_color": "primary",
             "button_effect": "fade",
             "wishlist_color": "#000000",
-            "wishlist_color_hover": "#0ec1ae",
-            "wishlist_color_active": "#e81e1e",
+            "wishlist_color_hover": "#8e0000",
+            "wishlist_color_active": "#8e0000",
             "compare_color": "#000000",
-            "compare_color_hover": "#0ec1ae",
+            "compare_color_hover": "#8e0000",
             "show_dynamic_checkout": false,
             "btn_txt2": "3",
             "button_color_payment": "dark",
@@ -117,6 +107,16 @@
             "advance_pr_list": [
 
             ]
+          }
+        },
+        "abfbacc5-dd22-45fc-90a9-91620666a754": {
+          "type": "description",
+          "settings": {
+            "des": "1",
+            "text": "",
+            "length": 50,
+            "readm": false,
+            "readm_txt": "Read more"
           }
         },
         "e8f22b12-b4a8-4a95-b4bc-9a0d2c8075c5": {
@@ -159,12 +159,6 @@
             "space_v_item_mb": "2"
           }
         },
-        "8cb75c19-2a0d-4fb8-9e65-526f24de623b": {
-          "type": "tab_des",
-          "settings": {
-            "title": "Description"
-          }
-        },
         "3090d62a-b7a8-4f60-9743-2d26b84a78f3": {
           "type": "tab_rivui",
           "settings": {
@@ -190,20 +184,19 @@
         "3eaacecf-c956-46e5-84ef-40474509a065",
         "18a8b200-4f94-4b72-b0eb-01abf185ecb3",
         "49fc91c0-8308-4d0f-90f1-cfe6c5d8ea04",
-        "1a3a9220-2bb3-4ab1-a2cb-03d0d9bb32c6",
         "8efd84b3-4647-43eb-8040-d7451a522e7d",
         "8f619784-04a8-4c20-b813-6902f9e3e922",
+        "abfbacc5-dd22-45fc-90a9-91620666a754",
         "e8f22b12-b4a8-4a95-b4bc-9a0d2c8075c5",
         "63217937-b18c-4e9f-b8c9-eb0b670c14fc",
         "6927e5dd-04a4-4db6-a60c-76fab4d0069a",
-        "8cb75c19-2a0d-4fb8-9e65-526f24de623b",
         "3090d62a-b7a8-4f60-9743-2d26b84a78f3",
         "a3a553b9-699d-4f84-8f77-8d6b8b2bea24"
       ],
       "settings": {
         "pr_layout": "default",
         "enable_sticky_info": true,
-        "enable_space_content": true,
+        "enable_space_content": false,
         "media_layout": "thumbnails_left",
         "media_size": "medium",
         "thumb_lr_size": "medium",
@@ -218,7 +211,7 @@
         "enable_video_looping": false,
         "enable_video_muting": true,
         "enable_video_autoplaying": true,
-        "eff": "fade",
+        "eff": "slide",
         "nav_btn": true,
         "btn_vi": "always",
         "btn_owl": "simple",

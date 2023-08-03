@@ -470,13 +470,6 @@ t4option0_0 | alt text
                   {%- when 'size' -%}
                     <div class="t4s-product__size">{%- if bk_size_chart != '1' and pos_sizeg == '1' %}{{ html_sizeg }}{% endif -%}</div>
                   {%- when 'form' -%}
-                    {%- comment -%}
-                    {%- liquid
-                        assign product_list = meta_theme.grouped.value
-                        assign advance_pr_type = meta_theme.advance_pr_type.value
-                        assign advance_label = meta_theme.advance_label.value -%}
-                    {%- endcomment -%}
-
                     {%- liquid
                       assign product_list = bk_stts.product_list
                       assign advance_pr_type = bk_stts.advance_pr_list
@@ -504,7 +497,7 @@ t4option0_0 | alt text
                         <a class="t4s-ch" data-no-instant rel="nofollow" href="{{ product.url }}" data-class="t4s-mfp-btn-close-inline" data-id="t4s-pr-popup__contact" data-storageid="contact_product{{ product.id }}" data-open-mfp-ajax data-style="max-width:563px" data-mfp-src="{{ product.url }}/?section_id=ajax_popup" data-phone='{{ bk_stts.phone }}'>{{ 'products.product.ask_question' | t }}</a>
                       {%- endif -%}
                     </div>
-                {%- when 'meta' -%}
+                  {%- when 'meta' -%}
                     {%- assign ck_meta = false -%}
                     {%- capture meta -%}
                         {%- if bk_stts.show_options and product.has_only_default_variant == false -%}{%- assign ck_meta = true -%}
