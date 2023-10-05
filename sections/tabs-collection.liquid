@@ -125,25 +125,12 @@
         {{-html_head[1]-}}
         {{- html_layout[0] -}}
           <div class="t4s-pr t4s-tab-contents2">
-            {%- if request.design_mode -%}
-              {%- for block in se_blocks -%}
-                {%- assign collection = collections[block.settings.collection]  -%}
-                <div id="t4s-{{ block.id }}" class="t4s-tab-content2 {% if forloop.first == true %} t4s-active {% endif %}" data-t4s-tab-content data-render-lazy-component >
-                  {%- render 'inc_tab',ck_q: true,section: section,se_stts: se_stts,sid: sid,collection: collection, block: block,se_stts: se_stts,arrow_icon: arrow_icon, use_link_vendor: use_link_vendor -%}
-                </div>
-              {%- endfor -%}
-            {%- else -%}
-                {%- assign block = section.blocks[0] -%}
-                  {%- assign collection = collections[block.settings.collection]  -%}
-                  <div id="t4s-{{ block.id }}" class="t4s-tab-content2 t4s-active" data-t4s-tab-content data-render-lazy-component >
-                    {%- render 'inc_tab',ck_q: true,section: section,se_stts: se_stts,sid: sid,collection: collection, block: block,se_stts: se_stts,arrow_icon: arrow_icon, use_link_vendor: use_link_vendor -%}
-                  </div>
-                {%- for block in section.blocks offset: 1 -%}
-                  {%- assign collection = collections[block.settings.collection]  -%}
-                  <div id="t4s-{{ block.id }}" class="t4s-tab-content2 lazyloadt4s" data-t4s-tab-content data-render-lazy-component data-rendert4s="{{ collection.url | default: search_url }}/{{ forloop.index }}_bid+ntt4tag" data-set4url='/?section_id={{ sid }}' data-t4splitlz>
-                    <div class="lds_bginfinity pr mt__50 mb__100"></div></div>
-                {%- endfor -%}
-            {%- endif -%}
+            {%- for block in se_blocks -%}
+              {%- assign collection = collections[block.settings.collection]  -%}
+              <div id="t4s-{{ block.id }}" class="t4s-tab-content2 {% if forloop.first == true %} t4s-active {% endif %}" data-t4s-tab-content data-render-lazy-component >
+                {%- render 'inc_tab',ck_q: true,section: section,se_stts: se_stts,sid: sid,collection: collection, block: block,se_stts: se_stts,arrow_icon: arrow_icon, use_link_vendor: use_link_vendor -%}
+              </div>
+            {%- endfor -%}
           </div>
         {{- html_layout[1] -}}
       </div>
